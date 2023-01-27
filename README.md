@@ -1,1 +1,0 @@
-# sistem_informasi_umkm_koperasi
