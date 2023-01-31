@@ -1,59 +1,38 @@
-@extends('layouts.main')
+@extends('layouts.body')
 
 @section('container')
 
-<div class="row justify-content-center mt-5">
-    <div class="col-lg-5">
-        <form>
-            <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3">
-                </div>
+<div class="row-1">
+    <p id="text-login-1">Masuk</p>
+    <p id="text-login-2">Sistem Informasi dan Pendaftaran Pelaku UMKM Kota Semarang</p>
+</div>
+
+<div class="row-2">
+    <img src="{{ asset('/img/akun.png') }}" alt="akun">
+
+    <div class="form-group-1">
+        <form action="/login" method="post">
+            @csrf
+            <div class="input-group-1">
+                <label  for="email">Email</label>
+                <input id="email" type="text" name="email" width="250px">
             </div>
-            <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3">
-                </div>
+            <div class="input-group-2">
+                <label  for="password">Password</label>
+                <input id="password" type="password" name="password" width="250px">
             </div>
-            <fieldset class="row mb-3">
-                <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                        <label class="form-check-label" for="gridRadios1">
-                            First radio
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                        <label class="form-check-label" for="gridRadios2">
-                            Second radio
-                        </label>
-                    </div>
-                    <div class="form-check disabled">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
-                            disabled>
-                        <label class="form-check-label" for="gridRadios3">
-                            Third disabled radio
-                        </label>
-                    </div>
-                </div>
-            </fieldset>
-            <div class="row mb-3">
-                <div class="col-sm-10 offset-sm-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                        <label class="form-check-label" for="gridCheck1">
-                            Example checkbox
-                        </label>
-                    </div>
-                </div>
+            <div class="row-4">
+                <a href="#">Lupa Password?</a>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button id="btn-login">Masuk</button>
         </form>
     </div>
 </div>
 
+
+
+
+
+
 @endsection
+

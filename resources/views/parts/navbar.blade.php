@@ -1,25 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg" style="background: rgba(37, 49, 109, 0.9);">
+    <div class="container navbar-contain">
+        <a class="navbar-brand d-flex" href="#">
+            <img src="{{ asset('img/logodinaskoperasi.png') }}" alt="logo-dinas-koperasi" width="50" height="50" class="d-inline-block align-text-top">
+            <p class="navbar-title ms-4">Dinas Koperasi Usaha Kecil dan Menengah<br>Kota Semarang</p>
+        </a>
     </div>
 </nav>
+

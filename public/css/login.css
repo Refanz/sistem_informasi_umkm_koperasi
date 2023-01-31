@@ -1,0 +1,145 @@
+.row-1 {
+    position: relative;
+    text-align: center;
+    top: 110px;
+}
+
+.row-1 p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.row-1 p#text-login-1 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.row-1 p#text-login-2 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.row-2 {
+    position: absolute;
+    top: 230px;
+    left: 0;
+    margin: 0 auto;
+    right: 0;
+    width: 477px;
+    height: 461px;
+    background: #EBF0F6;
+    border-radius: 22px;
+}
+
+.row-2 img {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: 198px;
+    right: 198px;
+    top: 29px;
+
+}
+
+.form-group-1 {
+    position: absolute;
+    top: 144px;
+}
+
+.input-group-1 {
+    position: relative;
+    left: 115px;
+}
+
+.input-group-1 label {
+    display: block;
+    width: 70px;
+    height: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 6px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.input-group-1 input[type="text"] {
+    display: block;
+    width: 250px;
+    height: 25px;
+    padding: 5px;
+    background: #FFFFFF;
+    border: 1px solid #8B7E74;
+    border-radius: 8px;
+}
+
+.input-group-2 {
+    position: relative;
+    left: 115px;
+    top: 9px;
+}
+
+.input-group-2 label {
+    display: block;
+    width: 70px;
+    height: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.input-group-2 input[type="password"] {
+    display: block;
+    width: 250px;
+    height: 25px;
+    padding: 5px;
+    background: #FFFFFF;
+    border: 1px solid #8B7E74;
+    border-radius: 8px;
+}
+
+.form-group-1 .row-4 {
+    position: relative;
+    top: 10px;
+    left: 279px;
+}
+
+.form-group-1 .row-4 a {
+    width: 86px;
+    height: 15px;
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    color: #FF4848;
+}
+
+.form-group-1 #btn-login {
+    position: relative;
+    top: 71px;
+    left: 179px;
+    background: #4A75D3;
+    border: 0;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    width: 121px;
+    height: 33px;
+    color: #FFFFFF;
+    
+}
