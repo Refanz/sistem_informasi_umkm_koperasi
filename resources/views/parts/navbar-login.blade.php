@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar-login">
 
     <img src="{{ asset('/img/logodinaskoperasi.png') }}" alt="">
 

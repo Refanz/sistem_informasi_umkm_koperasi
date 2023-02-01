@@ -15,11 +15,11 @@
             @csrf
             <div class="input-group-1">
                 <label  for="email">Email</label>
-                <input id="email" type="text" name="email" width="250px">
+                <input id="email" type="text" name="email" width="250px" placeholder="Email" required>
             </div>
             <div class="input-group-2">
                 <label  for="password">Password</label>
-                <input id="password" type="password" name="password" width="250px">
+                <input id="password" type="password" name="password" width="250px" placeholder="Password" required>
             </div>
             <div class="row-4">
                 <a href="#">Lupa Password?</a>

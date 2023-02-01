@@ -1,4 +1,4 @@
-.navbar {
+.navbar-login {
     position: relative;
     background: rgba(37, 49, 109, 0.9);
     height: 94px;
@@ -7,7 +7,7 @@
     margin: 0;
 }
 
-.navbar img {
+.navbar-login img {
     position: absolute;
     width: 30px;
     height: 39px;
@@ -16,7 +16,41 @@
     margin-right: 15px;
 }
 
-.navbar p {
+.navbar-login p {
+    position: absolute;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    top: 19px;
+    left: 208px;
+    width: 267px;
+}
+
+.navbar-dashboard {
+    position: relative;
+    background: rgba(37, 49, 109, 0.9);
+    height: 80px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-dashboard img {
+    position: absolute;
+    width: 30px;
+    height: 39px;
+    top: 20px;
+    bottom: 40px;
+    left: 166px;
+    margin-right: 15px;
+}
+
+.navbar-dashboard p {
     position: absolute;
     margin: 0;
     font-family: 'Poppins', sans-serif;
