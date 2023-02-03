@@ -5,30 +5,54 @@
     height: 802px;
 }
 
-.sidebar .row-1 {
+.sidebar .r-1 {
     position: absolute;
     top: 47px;
-    left: 41px;
+    left: 40px;
+    display: flex;
 }
 
-.sidebar .row-1 img {
+.sidebar .text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .text-container p {
+    margin: 0;
+}
+
+.sidebar .r-1 img {
     width: 50px;
     height: 50px;
+    margin-right: 9px;
 }
 
-.sidebar .row-1 #text-1 {
-    position: absolute;
-    left: 9px;
-    width: 244px;
-    height: 25px;
-    display: inline-block;
+.sidebar .r-1 #text-1 {
+    text-align: start;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+
 }
 
-.sidebar .row-1 #text-2 {
+.sidebar .r-1 #text-2 {
+    text-align: start;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    
+
+    color: #000000;
+
+}
+
+.sidebar .sidebar-menu {
     position: absolute;
-    left: 0;
-    top: 15px;
-    width: 244px;
-    height: 25px;
-    display: inline-block;
+    top: 153px;
+    left: 40px;
 }
