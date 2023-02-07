@@ -1,4 +1,4 @@
-@extends('layouts.body')
+@extends('layouts.main-login')
 
 @section('container')
 
@@ -28,11 +28,6 @@
         </form>
     </div>
 </div>
-
-
-
-
-
 
 @endsection
 
