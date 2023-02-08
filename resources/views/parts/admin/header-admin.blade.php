@@ -20,12 +20,12 @@
                     <a class="dropdown-item" href="profil.html">
                         <i class="fa fa-user fa-lg me-3" aria-hidden="true"></i>Profile
                     </a>
-                    <a class="dropdown-item" href="setting.html">
-                        <i class="fa fa-cog fa-lg me-3" aria-hidden="true"></i>Setting
-                    </a>
-                    <a class="dropdown-item" href="keluar.html">
-                        <i class="fa fa-sign-out fa-lg me-2" aria-hidden="true"></i>LogOut
-                    </a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button class="btn btn-link dropdown-item">
+                            <i class="fa fa-sign-out fa-lg me-2" aria-hidden="true"></i>Logout
+                        </button>
+                    </form>
                 </div>
             </li>
         </ul>

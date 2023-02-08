@@ -1,4 +1,4 @@
-{{-- <div class="main-writing">
+<div class="main-writing">
     <p>ADMIN DASHBOARD</p>
     <h6>Sistem Informasi Pendaftaran UMKM Kota Semarang</h6>
 </div>
@@ -11,8 +11,3 @@
     <span class="clear" onclick="document.getElementById('mysearch').value=''"></span>
 </div>
 
-<div class="filter">
-    <form action="">
-        <button class="fa fa-filter float-start fa-1x py-auto" aria-hidden="true" style="color:#ffffff"></button>
-    </form>
-</div><br><br> --}}
