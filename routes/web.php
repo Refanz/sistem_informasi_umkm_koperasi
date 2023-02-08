@@ -25,6 +25,8 @@ Route::get('data-pemilik', [DashboardController::class, 'dataPemilik'])->middlew
 Route::get('data-pelatihan', [DashboardController::class, 'dataPelatihan'])->middleware('auth')->name('dataPelatihan');
 Route::get('data-usaha', [DashboardController::class, 'dataUsaha'])->middleware('auth')->name('dataUsaha');
 
+Route::get('/tambah-data-umkm', [DashboardController::class, 'tambahDataUMKM'])->middleware('auth');
+
 Route::get('/umkm', [UMKMController::class, 'index'])->name('umkm');
 Route::get('/registrasi', [UMKMController::class, 'registrasi'])->name('registrasi');
 Route::get('/about', [UMKMController::class, 'about'])->name('about');

@@ -2,3 +2,10 @@
     text-transform: uppercase;
     color: #1E2F54;
 }
+
+.card-data {
+    color: white;
+    background-color: #809EE0;
+    margin-bottom: 20px;
+    border: none;
+}

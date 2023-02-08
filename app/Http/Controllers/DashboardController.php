@@ -26,4 +26,9 @@ class DashboardController extends Controller
     {
         return view('admin.data-usaha')->with('user', Auth::user());
     }
+
+    public function tambahDataUMKM()
+    {
+        return view('admin.data-umkm.tambah-data-umkm')->with('user', Auth::user());
+    }
 }

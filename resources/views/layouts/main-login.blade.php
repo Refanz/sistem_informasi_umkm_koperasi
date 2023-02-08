@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sistem Informasi Dinas Koperasi </title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/img/favicon/favicon.ico') }}" />
+    
     <link rel="stylesheet" href="{{ asset('/css/body.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/login.css') }}">
