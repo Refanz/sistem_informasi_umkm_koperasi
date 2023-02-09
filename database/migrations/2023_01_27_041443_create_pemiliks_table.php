@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_pemilik', function (Blueprint $table) {
-            $table->id('id_pemilik');
+        Schema::create('owners', function (Blueprint $table) {
+            $table->id();
             $table->string('nama_pemilik');
             $table->string('alamat_pemilik');
             $table->string('kelurahan_pemilik');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_pemilik');
+        Schema::dropIfExists('owners');
     }
 };

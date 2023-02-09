@@ -19,7 +19,7 @@ function showAlert2() {
 
 $(document).ready(function() {
     $('#tambah-data-umkm').click(function() {
-
-    })
+        
+    });
 });
 

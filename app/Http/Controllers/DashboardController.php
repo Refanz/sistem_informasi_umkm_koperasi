@@ -12,9 +12,9 @@ class DashboardController extends Controller
         return view('admin.index')->with('user', Auth::user());
     }
 
-    public function dataPemilik()
+    public function dataDownloadUMKM()
     {
-        return view('admin.data-pemilik')->with('user', Auth::user());
+        return view('admin.data-umkm')->with('user', Auth::user());
     }
 
     public function dataPelatihan()

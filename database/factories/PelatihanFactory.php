@@ -17,7 +17,8 @@ class PelatihanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'pengalaman_pelatihan' => $this->faker->word(),
+            'usulan_pelatihan' => $this->faker->word()
         ];
     }
 }

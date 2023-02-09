@@ -2,20 +2,19 @@
 
 @section('wrapper')
 
-
-
 <div class="main-pages">
     <div class="container-fluid">
 
         <div class="row mb-2">
             <div class="col-12">
-                <h3 class="fw-bold tb-title">Data Pelatihan UMKM</h3>
+                <h3 class="fw-bold tb-title">Data UMKM</h3>
             </div>
         </div>
 
-        <div class="row mb-3">
+        <div class="row mb-3 align-items-center">
             <div class="col-12">
                 <a class="btn btn-primary" href="/tambah-data-umkm">Tambah</a>
+                <a class="btn btn-success" href="/download-data-umkm">Download</a>
             </div>
         </div>
         <div class="row">

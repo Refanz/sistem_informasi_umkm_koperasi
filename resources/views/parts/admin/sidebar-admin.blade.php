@@ -22,8 +22,8 @@
             <a class="nav-link px-3" href="/data-pelatihan">
                 <i class="fa fa-calendar fa-lg box-icon" aria-hidden="true"></i>Data Pelatihan
             </a>
-            <a class="nav-link px-3" href="/data-umkm">
-                <i class="fa fa-download fa-lg box-icon" aria-hidden="true"></i>Download Data UMKM
+            <a class="nav-link px-3" href="/data-download-umkm">
+                <i class="fa fa-download fa-lg box-icon" aria-hidden="true"></i>Download Data
             </a>
         </nav>
     </div>

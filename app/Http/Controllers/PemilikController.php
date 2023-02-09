@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pemilik;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePemilikRequest;
 use App\Http\Requests\UpdatePemilikRequest;
 
@@ -14,8 +15,16 @@ class PemilikController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $pemilik = new Pemilik();
+
+        $dataPemilik = Pemilik::all();
+
+        return view('admin.data-pemilik')->with([
+            'user'=> Auth::user(),
+            'columns' => $pemilik->getKolomPemilik(),
+            'datas' => $dataPemilik
+        ]);
     }
 
     /**

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UMKM extends Model
 {
     use HasFactory;
+
+    protected $table = 'umkms';
+    protected $guarded = ['id'];
 }

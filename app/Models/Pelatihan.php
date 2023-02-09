@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Pelatihan extends Model
 {
     use HasFactory;
+
+    protected $table = 'trainings';
+    protected $guarded = ['id'];
+    protected $with = ['pemilik'];
+
+
+    public function pemilik()
+    {
+        return $this->belongsTo(Pemilik::class, 'owner_id');
+    }
 }

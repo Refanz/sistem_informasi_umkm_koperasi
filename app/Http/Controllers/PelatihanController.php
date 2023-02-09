@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pelatihan;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePelatihanRequest;
 use App\Http\Requests\UpdatePelatihanRequest;
 
@@ -15,7 +16,7 @@ class PelatihanController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**

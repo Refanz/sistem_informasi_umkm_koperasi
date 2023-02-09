@@ -2,6 +2,8 @@
 
 @section('wrapper')
 
+{{ $no = 1 }}
+
 <div class="main-pages">
     <div class="container-fluid">
 
@@ -23,95 +25,30 @@
                     <table id="tb-pemilik" class="table table-striped dt-responsive nowrap" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>no</th>
+                               @foreach(array_slice($columns, 1) as $column)
+                                <th>{{ $column }}</th>
+                               @endforeach
+                               <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
+                            @foreach($datas as $data)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $data['nama_pemilik'] }}</td>
+                                    <td>{{ $data['alamat_pemilik'] }}</td>
+                                    <td>{{ $data['kelurahan_pemilik'] }}</td>
+                                    <td>{{ $data['kecamatan_pemilik'] }}</td>
+                                    <td>{{ $data['no_telepon'] }}</td>
+                                    <td>{{ $data['email'] }}</td>
+                                    <td>{{ $data['sosial_media'] }}</td>
+                                    <td>{{ $data['pendidikan_terakhir'] }}</td>
+                                    <td>{{ $data['created_at'] }}</td>
+                                    <td>{{ $data['updated_at'] }}</td>
+                                    <td></td>
+                                </tr>
+                            @endforeach    
                         </tbody>
                     </table>
                 </div>
