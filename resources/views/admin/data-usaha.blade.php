@@ -2,6 +2,8 @@
 
 @section('wrapper')
 
+{{ $no = 1 }}
+
 <div class="main-pages">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -22,59 +24,45 @@
                 <table id="tb-usaha" class="table table-striped dt-responsive nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Nama Pemilik</th>
-                            <th>Nama Usaha</th>
-                            <th>Bidang Usaha</th>
-                            <th>Jenis Produk</th>
-                            <th>Alamat</th>
-                            <th>Kelurahan</th>
-                            <th>Kecamatan</th>
-                            <th>NIB/OSS</th>
-                            <th>No. Pendataan UMKM</th>
-                            <th>Aset 2020</th>
-                            <th>Aset 2021</th>
-                            <th>Omset 2020</th>
-                            <th>Omset 2021</th>
-                            <th>Kapasitas Produksi 2020</th>
-                            <th>Kapasitas Produksi 2021</th>
-                            <th>Tenaga Kerja 2020</th>
-                            <th>Tenaga Kerja 2021</th>
-                            <th>Cakupan Wilayah Pemasaran</th>
-                            <th>Jenis Pemasaran</th>
-                            <th>Izin Usaha</th>
-                            <th>Pemodalan Usaha</th>
-                            <th>Permasalahan yang dihadapi</th>
-                            <th>Action</th>
+                            <th>no</th>
+                            @foreach(array_slice($columns, 2) as $kolom)
+                                <th>{{ $kolom }}</th>
+                            @endforeach
+                            <th>action</td>
                         </tr>
                     </thead>
                     <tbody>
-                        <td>Yanto</td>
-                        <td>Jamal MakeUp</td>
-                        <td>Kuliner</td>
-                        <td>Makanan</td>
-                        <td>Tambakharjo RT 05/ RW 02</td>
-                        <td>Tambakharjo</td>
-                        <td>Semarang Barat</td>
-                        <td>002233468697</td>
-                        <td>002368942332</td>
-                        <td>Rp5.000.000</td>
-                        <td>Rp12.000.000</td>
-                        <td>Rp15.000.000</td>
-                        <td>Rp21.000.000</td>
-                        <td>100Kg</td>
-                        <td>100Kg</td>
-                        <td>12</td>
-                        <td>25</td>
-                        <td>Dalam Kota, Nasional</td>
-                        <td>Penjualan langsung, online</td>
-                        <td>NIB/OSS, NPWP, PIRT</td>
-                        <td>Modal Sendiri</td>
-                        <td>Sulit mencari ruko kosong</td>
+                        @foreach($datas as $data)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $data->nama_usaha }}</td>
+                                <td>{{ $data->bidang_usaha }}</td>
+                                <td>{{ $data->jenis_produk }}</td>
+                                <td>{{ $data->nib_oss }}</td>
+                                <td>{{ $data->no_pendataan_umkm }}</td>
+                                <td>{{ $data->alamat_usaha }}</td>
+                                <td>{{ $data->kelurahan_usaha }}</td>
+                                <td>{{ $data->kecamatan_usaha }}</td>
+                                <td>{{ $data->omset }}</td>
+                                <td>{{ $data->asset }}</td>
+                                <td>{{ $data->kapasitas_produksi }}</td>
+                                <td>{{ $data->tenaga_kerja }}</td>
+                                <td>{{ $data->cakupan_wilayah_pemasaran }}</td>
+                                <td>{{ $data->jenis_pemasaran }}</td>
+                                <td>{{ $data->izin_usaha }}</td>
+                                <td>{{ $data->permodalan_usaha }}</td>
+                                <td>{{ $data->permasalahan_usaha }}</td>
+                                <td>{{ $data->created_at }}</td>
+                                <td>{{ $data->updated_at }}</td>
+                                <td>
+                                    <a href="#tambahdata" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="#hapusdata" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Hapus">&#xE872;</i></a>
+                                </td>
+                            </tr>
+                            
+                        @endforeach
 
-                        <td>
-                            <a href="#tambahdata" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#hapusdata" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Hapus">&#xE872;</i></a>
-                        </td>
+                        
                     </tbody>
                 </table>
                 </div>

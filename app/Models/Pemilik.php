@@ -22,12 +22,4 @@ class Pemilik extends Model
     {
         return $this->hasOne(Pelatihan::class);
     }
-
-    public function getKolomPemilik()
-    {
-        return Schema::getColumnListing($this->getTable());
-    }
-
-
-
 }

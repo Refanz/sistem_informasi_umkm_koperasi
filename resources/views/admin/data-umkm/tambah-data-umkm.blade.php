@@ -70,7 +70,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-6 mb-5">
+            <div class="col-md-7 mb-5">
                 <div class="form-group">
                     <label class="form-label">Alamat</label>
                     <textarea type="text" class="form-control" rows="6"></textarea>
@@ -86,7 +86,7 @@
                     <input type="text" class="form-control" placeholder="" />
                 </div>
             </div>
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 <div class="form-group">
                     <label class="form-label">Aset (2020)</label>
                     <input type="text" class="form-control" placeholder="" />
@@ -97,23 +97,30 @@
                     <label class="form-label">Aset (2021)</label>
                     <input type="text" class="form-control" placeholder="" />
                 </div>
-            </div>
+            </div> --}}
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="form-label">Bidang Usaha</label>
                     <input type="text" class="form-control" placeholder="" />
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="form-label">Omset (2020)</label>
-                    <input type="text" class="form-control" placeholder="" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="form-label">Omset (2021)</label>
-                    <input type="text" class="form-control" placeholder="" />
+            <div id="omset">
+                <div class="row-omset" style="display: inline-flex" id = "row-0">
+                    <div class="col-md-4 me-2">
+                        <div class="form-group">
+                            <label class="form-label">Omset</label>
+                            <input type="text" name="omset[]" class="form-control" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Tahun Omset</label>
+                            <input type="number" nama="tahun_omset[]" class="form-control" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-md-1 pad-40">
+                        <i class="fa fa-plus fa-lg box-icon" href="#"  onclick="tambahFieldOmset()"></i>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">

@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\Helper;
-use App\Models\Usaha;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StoreUsahaRequest;
-use App\Http\Requests\UpdateUsahaRequest;
+use App\Models\Fund;
+use App\Http\Requests\StoreFundRequest;
+use App\Http\Requests\UpdateFundRequest;
 
-class UsahaController extends Controller
+class FundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +15,7 @@ class UsahaController extends Controller
      */
     public function index()
     {
-        $usaha = new Usaha;
-
-        return view('admin.data-usaha')->with([
-            'user' => Auth::user(),
-            'columns' => Helper::getCountKolom($usaha->getTable()),
-            'datas' => $usaha->all()
-        ]);
+        //
     }
 
     /**
@@ -39,10 +31,10 @@ class UsahaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUsahaRequest  $request
+     * @param  \App\Http\Requests\StoreFundRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUsahaRequest $request)
+    public function store(StoreFundRequest $request)
     {
         //
     }
@@ -50,10 +42,10 @@ class UsahaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Usaha  $usaha
+     * @param  \App\Models\Fund  $fund
      * @return \Illuminate\Http\Response
      */
-    public function show(Usaha $usaha)
+    public function show(Fund $fund)
     {
         //
     }
@@ -61,10 +53,10 @@ class UsahaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Usaha  $usaha
+     * @param  \App\Models\Fund  $fund
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usaha $usaha)
+    public function edit(Fund $fund)
     {
         //
     }
@@ -72,11 +64,11 @@ class UsahaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUsahaRequest  $request
-     * @param  \App\Models\Usaha  $usaha
+     * @param  \App\Http\Requests\UpdateFundRequest  $request
+     * @param  \App\Models\Fund  $fund
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUsahaRequest $request, Usaha $usaha)
+    public function update(UpdateFundRequest $request, Fund $fund)
     {
         //
     }
@@ -84,10 +76,10 @@ class UsahaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Usaha  $usaha
+     * @param  \App\Models\Fund  $fund
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usaha $usaha)
+    public function destroy(Fund $fund)
     {
         //
     }

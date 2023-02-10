@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Pemilik;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePemilikRequest;
@@ -22,7 +23,7 @@ class PemilikController extends Controller
 
         return view('admin.data-pemilik')->with([
             'user'=> Auth::user(),
-            'columns' => $pemilik->getKolomPemilik(),
+            'columns' => Helper::getCountKolom($pemilik->getTable()),
             'datas' => $dataPemilik
         ]);
     }

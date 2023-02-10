@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Pelatihan;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePelatihanRequest;
@@ -16,7 +17,14 @@ class PelatihanController extends Controller
      */
     public function index()
     {
-       
+
+        $pelatihan = new Pelatihan;
+
+        return view('admin.data-pelatihan')->with([
+            'user' => Auth::user(),
+            'columns' => Helper::getCountKolom($pelatihan->getTable()),
+            'datas' => $pelatihan->all()
+        ]);
     }
 
     /**

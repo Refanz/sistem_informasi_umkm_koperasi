@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\UMKMController;
+use App\Http\Controllers\UsahaController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -23,8 +25,8 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('data-pelatihan', [DashboardController::class, 'dataPelatihan'])->middleware('auth')->name('dataPelatihan');
-Route::get('data-usaha', [DashboardController::class, 'dataUsaha'])->middleware('auth')->name('dataUsaha');
+Route::get('/data-pelatihan', [PelatihanController::class, 'index'])->middleware('auth')->name('dataPelatihan');
+Route::get('/data-usaha', [UsahaController::class, 'index'])->middleware('auth')->name('dataUsaha');
 Route::get('/data-download-umkm', [DashboardController::class, 'dataDownloadUMKM'])->middleware('auth')->name('dataDownloadUMKM');
 
 Route::get('/data-pemilik', [PemilikController::class, 'index'])->middleware('auth')->name('dataPemilik');

@@ -49,6 +49,7 @@
     <script src="{{ asset('/js/admin/index.js') }}"></script>
     <script src="{{ asset('/js/admin/data.js') }}"></script>
     <script src="{{ asset('/js/admin/swalert.js') }}"></script>
+    <script src="{{ asset('/js/admin/form.js') }}"></script>
 </body>
 </html>
 
