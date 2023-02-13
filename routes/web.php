@@ -6,6 +6,7 @@ use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\UMKMController;
 use App\Http\Controllers\UsahaController;
+use App\Models\UMKM;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -28,11 +29,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::get('/data-pelatihan', [PelatihanController::class, 'index'])->middleware('auth')->name('dataPelatihan');
 Route::get('/data-usaha', [UsahaController::class, 'index'])->middleware('auth')->name('dataUsaha');
 Route::get('/data-download-umkm', [DashboardController::class, 'dataDownloadUMKM'])->middleware('auth')->name('dataDownloadUMKM');
-
 Route::get('/data-pemilik', [PemilikController::class, 'index'])->middleware('auth')->name('dataPemilik');
 
-Route::get('/tambah-data-umkm', [DashboardController::class, 'tambahDataUMKM'])->middleware('auth');
-
+Route::get('/tambah-data-umkm', [UMKMController::class, 'create'])->middleware('auth');
+Route::post('/tambah-data-umkm', [UMKMController::class, 'store']);
 Route::get('/umkm', [UMKMController::class, 'index'])->name('umkm');
 Route::get('/registrasi', [UMKMController::class, 'registrasi'])->name('registrasi');
 Route::get('/about', [UMKMController::class, 'about'])->name('about');

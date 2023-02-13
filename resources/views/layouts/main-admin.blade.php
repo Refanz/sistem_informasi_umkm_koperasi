@@ -20,7 +20,6 @@
 </head>
 
 <body>
-
     <div class="wrapper">
         @include('parts.admin.header-admin')
 
@@ -44,12 +43,11 @@
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <script src="{{ asset('/js/admin/index.js') }}"></script>
     <script src="{{ asset('/js/admin/data.js') }}"></script>
-    <script src="{{ asset('/js/admin/swalert.js') }}"></script>
     <script src="{{ asset('/js/admin/form.js') }}"></script>
+
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </body>
 </html>
 

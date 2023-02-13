@@ -11,15 +11,16 @@ class Pemilik extends Model
     use HasFactory;
 
     protected $table = 'owners';
-    protected $guarded = ['id'];
+    public $incrementing = false;
+    protected $guarded = [''];
 
     public function usaha()
     {
-        return $this->hasOne(Pemilik::class);
+        return $this->hasOne(Pemilik::class, 'owner_id');
     }
 
     public function pelatihan()
     {
-        return $this->hasOne(Pelatihan::class);
+        return $this->hasOne(Pelatihan::class, 'owner_id');
     }
 }

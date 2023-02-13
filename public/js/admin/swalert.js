@@ -17,9 +17,12 @@ function showAlert2() {
         });
 }
 
-$(document).ready(function() {
-    $('#tambah-data-umkm').click(function() {
-        
+function showAlertSucces() {
+    swal({
+        title: "Sukses",
+        text: "Data berhasil ditambah!",
+        icon: "success"
     });
-});
+}
+
 

@@ -24,11 +24,11 @@
                     <table id="tb-pelatihan" class="table table-striped nowrap" style="width:100%">
                         <thead>
                             <tr>
-                                <td>no</td>
+                                <th>no</th>
                                @foreach(array_slice($columns, 2) as $kolom)
-                                    <td>{{ $kolom }}</td>
+                                    <th>{{ $kolom }}</th>
                                @endforeach
-                               <td>action</td>
+                               <th>action</th>
                             </tr>
                         </thead>
                         <tbody>

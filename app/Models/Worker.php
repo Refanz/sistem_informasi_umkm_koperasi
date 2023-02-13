@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fund extends Model
+class Worker extends Model
 {
     use HasFactory;
-
-    protected $table = "funds";
 
     public function usaha()
     {

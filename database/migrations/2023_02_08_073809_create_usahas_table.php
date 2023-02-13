@@ -24,10 +24,6 @@ return new class extends Migration
             $table->string('alamat_usaha');
             $table->string('kelurahan_usaha');
             $table->string('kecamatan_usaha');
-            $table->string('omset');
-            $table->string('asset');
-            $table->string('kapasitas_produksi');
-            $table->string('tenaga_kerja');
             $table->string('cakupan_wilayah_pemasaran');
             $table->string('jenis_pemasaran');
             $table->string('izin_usaha');
