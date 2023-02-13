@@ -1,7 +1,7 @@
 let form_counter_omset = 0;
 let form_counter_aset = 0;
 let form_counter_tenaga_kerja = 0;
-let form_counter_kapasitas_produk = 0;
+let form_counter_kapasitas_produksi = 0;
 
 
 // Fungsi Tambah Field Omset
@@ -229,17 +229,17 @@ function tambahFieldKapasitasProduksi() {
 
 
     //tahun kapasitas_produk
-    form_g_tahun_kapasitas_produk.appendChild(label_tahun_kapasitas_produk);
-    form_g_tahun_kapasitas_produk.appendChild(input_tahun_kapasitas_produk);
-    col_tahun_kapasitas_produk.appendChild(form_g_tahun_kapasitas_produk);
-    row_kapasitas_produk.appendChild(col_tahun_kapasitas_produk); 
+    form_g_tahun_kapasitas_produksi.appendChild(label_tahun_kapasitas_produksi);
+    form_g_tahun_kapasitas_produksi.appendChild(input_tahun_kapasitas_produksi);
+    col_tahun_kapasitas_produksi.appendChild(form_g_tahun_kapasitas_produksi);
+    row_kapasitas_produksi.appendChild(col_tahun_kapasitas_produksi); 
 
 
-    //icon kapasitas_produk
-    col_operasi_kapasitas_produk.appendChild(icon_minus_kapasitas_produk);
-    row_kapasitas_produk.appendChild(col_operasi_kapasitas_produk);
-    row_kapasitas_produk.id = "row-kp-"+form_counter_kapasitas_produk;
-    kapasitas_produk.appendChild(row_kapasitas_produk);
+    //icon kapasitas_produksi
+    col_operasi_kapasitas_produksi.appendChild(icon_minus_kapasitas_produksi);
+    row_kapasitas_produksi.appendChild(col_operasi_kapasitas_produksi);
+    row_kapasitas_produksi.id = "row-kp-"+form_counter_kapasitas_produksi;
+    kapasitas_produksi.appendChild(row_kapasitas_produksi);
 }
 
 // Fungsi Tambah Field Tenaga Kerja

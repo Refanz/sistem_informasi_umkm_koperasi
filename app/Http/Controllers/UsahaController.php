@@ -16,13 +16,14 @@ class UsahaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $usaha = new Usaha;
+    {   
+        $usaha = new Usaha();
+        $dataUsaha = Usaha::with(['assets'])->get();
 
         return view('admin.data-usaha')->with([
             'user' => Auth::user(),
             'columns' => Helper::getCountKolom($usaha->getTable()),
-            'datas' => $usaha->all()
+            'datas' => $dataUsaha
         ]);
     }
 

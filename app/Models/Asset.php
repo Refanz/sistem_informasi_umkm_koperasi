@@ -9,6 +9,8 @@ class Asset extends Model
 {
     use HasFactory;
 
+    protected $with = ['usaha'];
+
     public function usaha()
     {
         return $this->belongsTo(Usaha::class, 'jobs_id');

@@ -19,22 +19,22 @@ class Usaha extends Model
         return $this->belongsTo(Pemilik::class, 'owner_id');
     }
 
-    public function fund()
+    public function funds()
     {
         return $this->hasMany(Fund::class, 'jobs_id');
     }
 
-    public function asset()
+    public function assets()
     {
-        return $this->hasMany(Asset::class);
+        return $this->hasMany(Asset::class, 'jobs_id');
     }
 
-    public function worker()
+    public function workers()
     {
         return $this->hasMany(Worker::class);
     }
 
-    public function capacityProduction()
+    public function capacityProductions()
     {
         return $this->hasMany(CapacityProduction::class);
     }

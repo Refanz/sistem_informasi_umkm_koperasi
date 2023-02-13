@@ -6,9 +6,6 @@
 
 <div class="main-pages">
     <div class="container-fluid">
-
-
-
         <div class="header-data">
             <div class="card p-1 shadow card-data">
                 <div class="d-flex align-items-center px-4">
@@ -181,7 +178,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-label">T. Omset</label>
-                            <input type="number" nama="tahun_omset[]" class="form-control" placeholder="Tahun Omset" />
+                            <input type="number" name="tahun_omset[]" class="form-control" placeholder="Tahun Omset" />
                         </div>
                     </div>
                     <div class="col-md-1 pad-40">
@@ -200,7 +197,7 @@
                     <div class="col-md-4 col-5">
                         <div class="form-group">
                             <label class="form-label">T. Kapasitas Produksi</label>
-                            <input type="number" nama="tahun_kapasitas_produksi[]" class="form-control" placeholder="Tahun Kapasitas Produksi" />
+                            <input type="number" name="tahun_kapasitas_produksi[]" class="form-control" placeholder="Tahun Kapasitas Produksi" />
                         </div>
                     </div>
                     <div class="col-md-1 pad-40">
@@ -219,7 +216,7 @@
                     <div class="col-md-4 col-5">
                         <div class="form-group">
                             <label class="form-label">T. Tenaga Kerja</label>
-                            <input type="number" nama="tahun_tenaga_kerja[]" class="form-control" placeholder="Tahun Tenaga Kerja" />
+                            <input type="number" name="tahun_tenaga_kerja[]" class="form-control" placeholder="Tahun Tenaga Kerja" />
                         </div>
                     </div>
                     <div class="col-md-1 pad-40">

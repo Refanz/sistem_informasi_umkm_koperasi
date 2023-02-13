@@ -25,20 +25,22 @@
                         <thead>
                             <tr>
                                 <th>no</th>
-                               @foreach(array_slice($columns, 2) as $kolom)
-                                    <th>{{ $kolom }}</th>
-                               @endforeach
-                               <th>action</th>
+                                @foreach(array_slice($columns, 2) as $kolom)
+                                <th>{{ $kolom }}</th>
+                                @endforeach
+                                <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($datas as $data)
+                            <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $data->pengalaman_pelatihan }}</td>
                                 <td>{{ $data->usulan_pelatihan }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>{{ $data->updated_at }}</td>
                                 <td></td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

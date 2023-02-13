@@ -21,18 +21,20 @@
         <div class="row">
             <div class="col-12 ">
                 <div class="card p-3 shadow">
-                <table id="tb-usaha" class="table table-striped dt-responsive nowrap" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>no</th>
-                            @foreach(array_slice($columns, 2) as $kolom)
+                    <table id="tb-usaha" class="table table-striped dt-responsive nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>no</th>
+                                @foreach(array_slice($columns, 2) as $kolom)
                                 <th>{{ $kolom }}</th>
-                            @endforeach
-                            <th>action</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($datas as $data)
+                                @endforeach
+                                <th>asset</th>
+                                <th>tahun_asset</th>
+                                <th>action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($datas as $data)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $data->nama_usaha }}</td>
@@ -43,10 +45,6 @@
                                 <td>{{ $data->alamat_usaha }}</td>
                                 <td>{{ $data->kelurahan_usaha }}</td>
                                 <td>{{ $data->kecamatan_usaha }}</td>
-                                <td>{{ $data->omset }}</td>
-                                <td>{{ $data->asset }}</td>
-                                <td>{{ $data->kapasitas_produksi }}</td>
-                                <td>{{ $data->tenaga_kerja }}</td>
                                 <td>{{ $data->cakupan_wilayah_pemasaran }}</td>
                                 <td>{{ $data->jenis_pemasaran }}</td>
                                 <td>{{ $data->izin_usaha }}</td>
@@ -55,20 +53,32 @@
                                 <td>{{ $data->created_at }}</td>
                                 <td>{{ $data->updated_at }}</td>
                                 <td>
+                                    @foreach($data->assets as $asset)
+                                    {{ $asset->jumlah_asset }}
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach($data->assets as $asset)
+                                    {{ $asset->tahun }}
+                                    @endforeach
+                                </td>
+                                <td>
                                     <a href="#tambahdata" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                     <a href="#hapusdata" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Hapus">&#xE872;</i></a>
                                 </td>
                             </tr>
-                            
-                        @endforeach
 
-                        
-                    </tbody>
-                </table>
+                            @endforeach
+
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
         </div>
+    </div>
+</div>
 
-        @endsection
+@endsection
 

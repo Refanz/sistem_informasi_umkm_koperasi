@@ -10,9 +10,10 @@ class Fund extends Model
     use HasFactory;
 
     protected $table = "funds";
+    protected $with = ['usaha'];
 
     public function usaha()
     {
-        return $this->belongsTo(Usaha::class, 'usaha_id');
+        return $this->belongsTo(Usaha::class, 'jobs_id');
     }
 }
