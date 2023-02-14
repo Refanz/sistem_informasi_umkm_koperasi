@@ -28,13 +28,12 @@
                                 @foreach(array_slice($columns, 2) as $kolom)
                                 <th>{{ $kolom }}</th>
                                 @endforeach
-                                <th>asset</th>
-                                <th>tahun_asset</th>
                                 <th>action</td>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($datas as $data)
+                          
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $data->nama_usaha }}</td>
@@ -53,21 +52,18 @@
                                 <td>{{ $data->created_at }}</td>
                                 <td>{{ $data->updated_at }}</td>
                                 <td>
-                                    @foreach($data->assets as $asset)
-                                    {{ $asset->jumlah_asset }}
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($data->assets as $asset)
-                                    {{ $asset->tahun }}
-                                    @endforeach
-                                </td>
-                                <td>
-                                    <a href="#tambahdata" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#hapusdata" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Hapus">&#xE872;</i></a>
+                                    <a href="{{ route('detailUsaha', ['id' => $data->id]) }}"  data-toggle="modal"><i style="color: green;" class="fa fa-info-circle fa-lg box-icon" aria-hidden="true"></i></a>
+                                    <a class="d-inline" href="{{ route('editUsaha', ['id' => $data->id]) }}" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg box-icon" aria-hidden="true"></i></a>
+                                    <button class="btn btn-icon btn-link p-0 btn-a mt-0" onclick="showAlert2({{ $data->id }})">
+                                        <i style="color: red" class="fa fa-trash fa-lg box-icon mb-2" aria-hidden="true"></i>
+                                    </button>
+                                    
+                                    <form id="hapus-form-{{ $data->id }}" class="form-inline" action="{{ route('hapusUsaha', ['id' => $data->id]) }}" method="post">
+                                        @csrf
+                                    </form>
                                 </td>
                             </tr>
-
+                        
                             @endforeach
 
 

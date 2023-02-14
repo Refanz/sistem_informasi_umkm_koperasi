@@ -1,20 +1,15 @@
-function showAlert2() {
-    swal({
-        title: "Apakah Anda yakin untuk menghapus data ini?",
-        text: "Setelah dihapus, Anda tidak akan dapat memulihkan kembali file ini!",
+function showAlert2(id) {
+    Swal.fire({
+        title: "Apakah Anda yakin?",
+        text: "Data yang dihapus tidak dapat dikembalikan!",
         icon: "warning",
-        buttons: true,
-        dangerMode: true,
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('hapus-form-'+id).submit();
+        }
     })
-        .then((willDelete) => {
-            if (willDelete) {
-                swal("Nice! Data Berhasil Disimpan!", {
-                    icon: "success",
-                });
-            } else {
-                swal("Data Anda Aman!");
-            }
-        });
 }
 
 function showAlertSucces() {

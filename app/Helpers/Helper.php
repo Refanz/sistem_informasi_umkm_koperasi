@@ -18,7 +18,13 @@ class Helper
     }
 
     public static function getLastIdFromTable(Model $model)
-    {
+    {   
+        $tabel = Helper::checkTable($model);
+
+        if (is_null($tabel)) {
+            return 1;
+        }
+
         return $model->latest()->first()->id + 1;
     }
 }

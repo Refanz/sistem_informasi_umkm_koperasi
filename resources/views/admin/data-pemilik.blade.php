@@ -26,34 +26,42 @@
                         <thead>
                             <tr>
                                 <th>no</th>
-                               @foreach(array_slice($columns, 1) as $column)
+                                @foreach(array_slice($columns, 1) as $column)
                                 <th>{{ $column }}</th>
-                               @endforeach
-                               <th>action</th>
+                                @endforeach
+                                <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($datas as $data)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>{{ $data['nama_pemilik'] }}</td>
-                                    <td>{{ $data['alamat_pemilik'] }}</td>
-                                    <td>{{ $data['kelurahan_pemilik'] }}</td>
-                                    <td>{{ $data['kecamatan_pemilik'] }}</td>
-                                    <td>{{ $data['no_telepon'] }}</td>
-                                    <td>{{ $data['email'] }}</td>
-                                    <td>{{ $data['sosial_media'] }}</td>
-                                    <td>{{ $data['pendidikan_terakhir'] }}</td>
-                                    <td>{{ $data['created_at'] }}</td>
-                                    <td>{{ $data['updated_at'] }}</td>
-                                    <td></td>
-                                </tr>
-                            @endforeach    
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $data['nama_pemilik'] }}</td>
+                                <td>{{ $data['alamat_pemilik'] }}</td>
+                                <td>{{ $data['kelurahan_pemilik'] }}</td>
+                                <td>{{ $data['kecamatan_pemilik'] }}</td>
+                                <td>{{ $data['no_telepon'] }}</td>
+                                <td>{{ $data['email'] }}</td>
+                                <td>{{ $data['sosial_media'] }}</td>
+                                <td>{{ $data['pendidikan_terakhir'] }}</td>
+                                <td>{{ $data['created_at'] }}</td>
+                                <td>{{ $data['updated_at'] }}</td>
+                                <td>
+                                    <a class="d-inline" href="{{ route('editPemilik', ['id' => $data->id]) }}" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg box-icon" aria-hidden="true"></i></a>
+                                    <button class="btn btn-icon btn-link p-0 btn-a mt-0" onclick="showAlert2({{ $data->id }})">
+                                        <i style="color: red" class="fa fa-trash fa-lg box-icon mb-2" aria-hidden="true"></i>
+                                    </button>
+                                    
+                                    <form id="hapus-form-{{ $data->id }}" class="form-inline" action="{{ route('hapusPemilik', ['id' => $data->id]) }}" method="post">
+                                        @csrf
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

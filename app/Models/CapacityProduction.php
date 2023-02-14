@@ -11,6 +11,6 @@ class CapacityProduction extends Model
 
     public function usaha()
     {
-        return $this->belongsTo(Usaha::class, 'usaha_id');
+        return $this->belongsTo(Usaha::class, 'jobs_id');
     }
 }

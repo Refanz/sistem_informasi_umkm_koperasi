@@ -17,9 +17,9 @@
                             <small>{{ $user->email }}</small>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="profil.html">
+                    {{-- <a class="dropdown-item" href="profil.html">
                         <i class="fa fa-user fa-lg me-3" aria-hidden="true"></i>Profile
-                    </a>
+                    </a> --}}
                     <form action="/logout" method="post">
                         @csrf
                         <button class="btn btn-link dropdown-item">

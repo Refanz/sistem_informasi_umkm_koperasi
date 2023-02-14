@@ -21,9 +21,6 @@
                 <label  for="password">Password</label>
                 <input id="password" type="password" name="password" width="250px" placeholder="Password" required>
             </div>
-            <div class="row-4">
-                <a href="#">Lupa Password?</a>
-            </div>
             <button id="btn-login">Masuk</button>
         </form>
     </div>

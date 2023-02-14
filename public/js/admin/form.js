@@ -180,7 +180,7 @@ function tambahFieldKapasitasProduksi() {
 
     let label_kapasitas_produksi = document.createElement('label');
     label_kapasitas_produksi.className = "form-label";
-    label_kapasitas_produksi.innerHTML = "kapasitas_produksi"
+    label_kapasitas_produksi.innerHTML = "Kapasitas Produksi"
 
     let input_kapasitas_produksi = document.createElement('input');
     input_kapasitas_produksi.type = "text";
@@ -259,7 +259,7 @@ function tambahFieldTenagaKerja() {
 
     let label_tenaga_kerja = document.createElement('label');
     label_tenaga_kerja.className = "form-label";
-    label_tenaga_kerja.innerHTML = "tenaga_kerja"
+    label_tenaga_kerja.innerHTML = "Tenaga Kerja"
 
     let input_tenaga_kerja = document.createElement('input');
     input_tenaga_kerja.type = "text";

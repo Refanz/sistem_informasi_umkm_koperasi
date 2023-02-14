@@ -14,7 +14,7 @@
                 <i class="fa fa-home fa-lg box-icon" aria-hidden="true"></i>Dashboard
             </a>
             <a class="nav-link px-3" href="/data-pemilik">
-                <i class="fa fa-address-card fa-lg box-icon" href="#" aria-hidden="true"></i>Data Pemilik
+                <i class="fa fa-address-card fa-lg box-icon" aria-hidden="true"></i>Data Pemilik
             </a>
             <a class="nav-link px-3" href="/data-usaha">
                 <i class="fa fa-bar-chart fa-lg box-icon" aria-hidden="true"></i>Data Usaha

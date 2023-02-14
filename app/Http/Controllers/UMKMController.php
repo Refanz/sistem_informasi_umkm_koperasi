@@ -246,7 +246,7 @@ class UMKMController extends Controller
 
         $usaha->workers()->insert($data_tenaga_kerja);
 
-        return redirect('/tambah-data-umkm')->with('success', 'Data berhasil ditambah');
+        return redirect('/tambah-data-umkm')->with('success', 'Data UMKM berhasil ditambah');
     }
 
     /**

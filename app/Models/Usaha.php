@@ -31,11 +31,11 @@ class Usaha extends Model
 
     public function workers()
     {
-        return $this->hasMany(Worker::class);
+        return $this->hasMany(Worker::class, 'jobs_id');
     }
 
     public function capacityProductions()
     {
-        return $this->hasMany(CapacityProduction::class);
+        return $this->hasMany(CapacityProduction::class, 'jobs_id');
     }
 }

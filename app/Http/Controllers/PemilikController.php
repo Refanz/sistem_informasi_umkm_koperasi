@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\Pemilik;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Requests\StorePemilikRequest;
 use App\Http\Requests\UpdatePemilikRequest;
 
@@ -66,9 +67,14 @@ class PemilikController extends Controller
      * @param  \App\Models\Pemilik  $pemilik
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pemilik $pemilik)
+    public function edit($id)
     {
-        //
+        $data = Pemilik::where('id', $id)->get();
+
+        return view('admin.data-pemilik.edit-data-pemilik')->with([
+            'user' => Auth::user(),
+            'data' => $data
+        ]);
     }
 
     /**
@@ -80,7 +86,33 @@ class PemilikController extends Controller
      */
     public function update(UpdatePemilikRequest $request, Pemilik $pemilik)
     {
-        //
+
+        $request->validate([
+            'nama_pemilik' => 'required',
+            'sosial_media' => 'required',
+            'no_telepon' => 'required',
+            'kelurahan_pemilik' => 'required',
+            'kecamatan_pemilik' => 'required',
+            'email' => 'required',
+            'pendidikan_terakhir' => 'required',
+            'alamat_pemilik' => 'required',
+        ]);
+
+        
+        $id_pemilik = Route::getCurrentRoute()->parameter('id');
+
+        Pemilik::where('id', $id_pemilik)->update([
+            'nama_pemilik' => $request->input('nama_pemilik'),
+            'alamat_pemilik' => $request->input('alamat_pemilik'),
+            'kelurahan_pemilik' => $request->input('kelurahan_pemilik'),
+            'kecamatan_pemilik' => $request->input('kecamatan_pemilik'),
+            'no_telepon' => $request->input('no_telepon'),
+            'email' => $request->input('email'),
+            'sosial_media' => $request->input('sosial_media'),
+            'pendidikan_terakhir' => $request->input('pendidikan_terakhir'),
+        ]); 
+
+        return redirect()->route('dataPemilik')->with('success', 'Data pemilik berhasil diubah');
     }
 
     /**
@@ -89,8 +121,11 @@ class PemilikController extends Controller
      * @param  \App\Models\Pemilik  $pemilik
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pemilik $pemilik)
+    public function destroy($id)
     {
-        //
+        $data = Pemilik::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('dataPemilik')->with('success', 'Data pemilik berhasil dihapus');
     }
 }

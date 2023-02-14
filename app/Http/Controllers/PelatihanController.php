@@ -7,6 +7,7 @@ use App\Models\Pelatihan;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePelatihanRequest;
 use App\Http\Requests\UpdatePelatihanRequest;
+use Illuminate\Support\Facades\Route;
 
 class PelatihanController extends Controller
 {
@@ -65,9 +66,14 @@ class PelatihanController extends Controller
      * @param  \App\Models\Pelatihan  $pelatihan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pelatihan $pelatihan)
+    public function edit($id)
     {
-        //
+        $data = Pelatihan::where('id', $id)->get();
+
+        return view('admin.data-pelatihan.edit-data-pelatihan')->with([
+            'user' => Auth::user(),
+            'data' => $data
+        ]);
     }
 
     /**
@@ -79,7 +85,19 @@ class PelatihanController extends Controller
      */
     public function update(UpdatePelatihanRequest $request, Pelatihan $pelatihan)
     {
-        //
+        $request->validate([
+            'pengalaman_pelatihan' => 'required',
+            'usulan_pelatihan' => 'required'
+        ]);
+
+        $id_pelatihan = Route::getCurrentRoute()->parameter('id');
+
+        Pelatihan::where('id', $id_pelatihan)->update([
+            'pengalaman_pelatihan' => $request->input('pengalaman_pelatihan'),
+            'usulan_pelatihan' => $request->input('usulan_pelatihan')
+        ]);
+
+        return redirect()->route('dataPelatihan')->with('success', 'Data pelatihan berhasil diubah');
     }
 
     /**
@@ -88,8 +106,11 @@ class PelatihanController extends Controller
      * @param  \App\Models\Pelatihan  $pelatihan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelatihan $pelatihan)
+    public function destroy($id)
     {
-        //
+        $data = Pelatihan::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('dataPelatihan')->with('success', 'Data pelatihan berhasil dihapus');
     }
 }

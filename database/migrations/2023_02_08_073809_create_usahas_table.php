@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id');
+            $table->foreignId('owner_id')->constrained('owners')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nama_usaha');
             $table->string('bidang_usaha');
             $table->string('jenis_produk');

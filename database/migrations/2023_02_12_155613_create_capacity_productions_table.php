@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('jumlah_kapasitas_produksi');
             $table->year('tahun');
-            $table->foreignId('jobs_id');
+            $table->foreignId('jobs_id')->constrained('jobs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

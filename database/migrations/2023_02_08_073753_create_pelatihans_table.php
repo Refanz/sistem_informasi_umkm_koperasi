@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id');
+            $table->foreignId('owner_id')->constrained('owners')->onUpdate('cascade')->onDelete('cascade');
             $table->string('pengalaman_pelatihan');
             $table->string('usulan_pelatihan');
             $table->timestamps();

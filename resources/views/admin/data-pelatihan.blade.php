@@ -39,7 +39,16 @@
                                 <td>{{ $data->usulan_pelatihan }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>{{ $data->updated_at }}</td>
-                                <td></td>
+                                <td>
+                                    <a class="d-inline" href="{{ route('editPelatihan', ['id' => $data->id]) }}" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg box-icon" aria-hidden="true"></i></a>
+                                    <button class="btn btn-icon btn-link p-0 btn-a mt-0" onclick="showAlert2({{ $data->id }})">
+                                        <i style="color: red" class="fa fa-trash fa-lg box-icon mb-2" aria-hidden="true"></i>
+                                    </button>
+
+                                    <form id="hapus-form-{{ $data->id }}" class="form-inline" action="{{ route('hapusPelatihan', ['id' => $data->id]) }}" method="post">
+                                        @csrf
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

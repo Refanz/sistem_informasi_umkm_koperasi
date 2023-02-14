@@ -13,3 +13,9 @@
 .pad-40 {
     padding: 40px;
 }
+
+.btn-a:active,
+.btn-a:focus {
+  outline: none;
+  box-shadow: none;
+}

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('jumlah_modal');
             $table->year('tahun');
-            $table->foreignId('jobs_id');
+            $table->foreignId('jobs_id')->constrained('jobs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

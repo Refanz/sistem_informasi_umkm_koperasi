@@ -48,6 +48,9 @@
     <script src="{{ asset('/js/admin/form.js') }}"></script>
 
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('/js/admin/swalert.js') }}"></script>
 </body>
 </html>
 
