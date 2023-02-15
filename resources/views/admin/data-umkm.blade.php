@@ -2,6 +2,8 @@
 
 @section('wrapper')
 
+{{ $no = 1 }}
+
 <div class="main-pages">
     <div class="container-fluid">
 
@@ -13,8 +15,16 @@
 
         <div class="row mb-3 align-items-center">
             <div class="col-12">
-                <a class="btn btn-primary" href="/tambah-data-umkm">Tambah</a>
-                <a class="btn btn-success" href="/download-data-umkm">Download</a>
+                <form action="/data-umkm" method="GET" class="inline-form">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <input type="text" class="form-control" name="tahun_download" placeholder="Tahun Data" required>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-success">Download</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row">
@@ -23,95 +33,25 @@
                     <table id="tb-pelatihan" class="table table-striped nowrap" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>no</th>
+                                <th>nama_pemilik</th>
+                                <th>alamat_pemilik</th>
+                                <th>nama_usaha</th>
+                                <th>alamat_usaha</th>
+                                <th>pengalaman_pelatihan</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($datas as $data)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $data->nama_pemilik }}</td>
+                                <td>{{ $data->alamat_pemilik }}</td>
+                                <td>{{ $data->nama_usaha }}</td>
+                                <td>{{ $data->alamat_usaha }}</td>
+                                <td>{{ $data->pengalaman_pelatihan }}</td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

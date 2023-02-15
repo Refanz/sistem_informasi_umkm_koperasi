@@ -15,24 +15,4 @@ class DashboardController extends Controller
             'count' => Pemilik::count()
         ]);
     }
-
-    public function dataDownloadUMKM()
-    {
-        return view('admin.data-umkm')->with('user', Auth::user());
-    }
-
-    public function dataPelatihan()
-    {
-        return view('admin.data-pelatihan')->with('user', Auth::user());
-    }
-
-    public function dataUsaha()
-    {
-        
-    }
-
-    public function tambahDataUMKM()
-    {
-        
-    }
 }

@@ -16,7 +16,7 @@ class Pemilik extends Model
 
     public function usaha()
     {
-        return $this->hasOne(Pemilik::class, 'owner_id');
+        return $this->hasOne(Usaha::class, 'owner_id');
     }
 
     public function pelatihan()

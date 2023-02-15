@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('funds', function (Blueprint $table) {
             $table->id();
             $table->string('jumlah_modal');
-            $table->year('tahun');
+            $table->string('tahun', 4);
             $table->foreignId('jobs_id')->constrained('jobs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

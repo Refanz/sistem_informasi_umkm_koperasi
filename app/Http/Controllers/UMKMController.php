@@ -15,6 +15,9 @@ use App\Models\Pelatihan;
 use App\Models\Usaha;
 use App\Models\Worker;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Exports\DataTableExport;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UMKMController extends Controller
 {
@@ -292,5 +295,28 @@ class UMKMController extends Controller
     public function destroy(UMKM $uMKM)
     {
         //
+    }
+
+    public function downloadUMKM()
+    {
+        //$datas = Pemilik::with(['usaha', 'pelatihan'])->get();
+
+        $datas = Pemilik::join('jobs', 'owners.id', '=', 'jobs.owner_id')
+                    ->join('trainings', 'owners.id', '=', 'trainings.owner_id')
+                    ->select('owners.*','jobs.*', 'trainings.*')
+                    ->get();
+
+        return view('admin.data-umkm')->with([
+            'user' => Auth::user(),
+            'datas' => $datas
+        ]);
+    }
+
+    public function exportToExcel(Request $request)
+    {
+        // return redirect()->route('dataDownloadUMKM')->with('tahun', $request->tahun_download);
+        $tahun_download = $request->input('tahun_download');
+
+        return Excel::download(new DataTableExport($tahun_download), 'data-dinkop-'.now().'.xlsx');
     }
 }

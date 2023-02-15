@@ -26,7 +26,6 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/data-download-umkm', [DashboardController::class, 'dataDownloadUMKM'])->middleware('auth')->name('dataDownloadUMKM');
 
 Route::get('/data-pemilik', [PemilikController::class, 'index'])->middleware('auth')->name('dataPemilik');
 Route::post('/data-pemilik/hapus/{id}', [PemilikController::class , 'destroy'])->name('hapusPemilik');
@@ -50,5 +49,9 @@ Route::get('/data-pelatihan', [PelatihanController::class, 'index'])->middleware
 Route::get('/data-pelatihan/edit/{id}', [PelatihanController::class, 'edit'])->middleware('auth')->name('editPelatihan');
 Route::post('/data-pelatihan/edit/{id}', [PelatihanController::class, 'update'])->name('editPelatihan');
 Route::post('/data-pelatihan/hapus/{id}', [PelatihanController::class, 'destroy'])->name('hapusPelatihan');
+
+Route::get('/data-download-umkm', [UMKMController::class, 'downloadUMKM'])->middleware('auth')->name('dataDownloadUMKM');
+Route::get('/data-umkm', [UMKMController::class, 'exportToExcel'])->name('dataUMKM');
+
 
 
