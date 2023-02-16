@@ -1,0 +1,12 @@
+.navbar {
+    background-color: #25316DE5;
+}
+
+/* .navbar .container-fluid a {
+    margin-left: ;
+} */
+
+.navbar .container-fluid a p {
+    font-weight: bold;
+    font-size: 14px;
+}
