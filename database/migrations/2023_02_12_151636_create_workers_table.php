@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('workers', function (Blueprint $table) {
             $table->id();
             $table->integer('jumlah_pekerja');
-            $table->string('tahun', 4);
+            $table->year('tahun');
             $table->foreignId('jobs_id')->constrained('jobs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

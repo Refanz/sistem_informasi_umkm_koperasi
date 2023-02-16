@@ -71,8 +71,11 @@ class PemilikController extends Controller
     {
         $data = Pemilik::where('id', $id)->get();
 
+        $pendidikan = ['S1', 'D3', 'SMA', 'SMP', 'SD'];
+
         return view('admin.data-pemilik.edit-data-pemilik')->with([
             'user' => Auth::user(),
+            'pendidikan' => $pendidikan,
             'data' => $data
         ]);
     }

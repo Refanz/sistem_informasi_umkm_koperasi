@@ -63,12 +63,9 @@
                 <div class="form-group">
                     <label for="pendidikan" class="form-label">Pendidikan Terakhir</label>
                     <select id="pendidikan" class="form-select" name="pendidikan_terakhir" required>
-                        <option value=""> - </option>
-                        <option value="S1">S1</option>
-                        <option value="D3">D3</option>
-                        <option value="SMA">SMA</option>
-                        <option value="SMP">SMP</option>
-                        <option value="SD">SD</option>
+                        @foreach($pendidikan as $tingkat)
+                            <option value="{{ $tingkat }}" {{ $tingkat == $data[0]->pendidikan_terakhir ? 'selected' : '' }}>{{ $tingkat }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

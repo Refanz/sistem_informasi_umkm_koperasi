@@ -53,5 +53,7 @@ Route::post('/data-pelatihan/hapus/{id}', [PelatihanController::class, 'destroy'
 Route::get('/data-download-umkm', [UMKMController::class, 'downloadUMKM'])->middleware('auth')->name('dataDownloadUMKM');
 Route::get('/data-umkm', [UMKMController::class, 'exportToExcel'])->name('dataUMKM');
 
+Route::get('/umkm/data-kelurahan', [UMKMController::class, 'getDataPemilik'])->middleware('auth');
+
 
 

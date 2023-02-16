@@ -27,4 +27,13 @@ class Helper
 
         return $model->latest()->first()->id + 1;
     }
+
+    public static function getDataKelurahan(Model $model)
+    {
+        $data_kelurahan = $model::select('kelurahan_pemilik')
+                                    ->distinct()
+                                    ->get();
+
+        return $data_kelurahan;
+    }
 }

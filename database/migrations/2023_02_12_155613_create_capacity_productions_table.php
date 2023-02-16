@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('capacity_productions', function (Blueprint $table) {
             $table->id();
             $table->string('jumlah_kapasitas_produksi');
-            $table->string('tahun', 4);
+            $table->year('tahun');
             $table->foreignId('jobs_id')->constrained('jobs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

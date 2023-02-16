@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\Helper;
-use App\Models\UMKM;
-use App\Models\Pemilik;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StoreUMKMRequest;
-use App\Http\Requests\UpdateUMKMRequest;
-use App\Models\Asset;
-use App\Models\CapacityProduction;
 use App\Models\Fund;
-use App\Models\Pelatihan;
+use App\Models\UMKM;
+use App\Models\Asset;
 use App\Models\Usaha;
 use App\Models\Worker;
-use RealRashid\SweetAlert\Facades\Alert;
-use App\Exports\DataTableExport;
+use App\Helpers\Helper;
+use App\Models\Pemilik;
+use App\Models\Pelatihan;
 use Illuminate\Http\Request;
+use App\Exports\DataTableExport;
+use App\Models\CapacityProduction;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\StoreUMKMRequest;
+use App\Http\Requests\UpdateUMKMRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UMKMController extends Controller
 {
@@ -318,5 +319,25 @@ class UMKMController extends Controller
         $tahun_download = $request->input('tahun_download');
 
         return Excel::download(new DataTableExport($tahun_download), 'data-dinkop-'.now().'.xlsx');
+    }
+
+    public function getDataPemilik()
+    {
+        // $data_kelurahan = Pemilik::select('kelurahan_pemilik')
+        //                             ->distinct()
+        //                             ->get();
+
+        $data_kelurahan = Pemilik::select('kelurahan_pemilik', DB::raw('count(*) as total'))
+                                    ->groupBy('kelurahan_pemilik')
+                                    ->get();
+        
+        $data_kecamatan = Pemilik::select('kecamatan_pemilik', DB::raw('count(*) as total'))
+                                    ->groupBy('kecamatan_pemilik')
+                                    ->get();                            
+
+        return response()->json([
+            'data_kelurahan' => $data_kelurahan,
+            'data_kecamatan' => $data_kecamatan,
+        ]);
     }
 }
