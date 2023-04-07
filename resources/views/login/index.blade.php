@@ -5,12 +5,27 @@
 <p class="fw-bold text-center mt-4" style="font-size: 20px;">MASUK</p>
 <p class="fw-bold text-center" style="font-size: 15px;">SISTEM INFORMASI DAN PENDAFTARAN PELAKU UMKM KOTA SEMARANG</p>
 
+@isset($login_error)
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill" style="font-size: 13px"></i>
+            <div style="margin-left: 10px; font-size: 13px">
+                Email/Password yang anda masukkan salah!
+            </div>
+                <button style="font-size: 10px" type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+@endisset
+
 <div class="card m-auto mb-3 rounded-4 border-0" style="width: 340px; height: 350px; background: #EBF0F6">
     <div class="card-body">
         <div class="text-center">
             <img src="{{ asset('/img/akun.png') }}" alt="akun" width="65px" height="65px">
         </div>
-        <form class="row g-3 p-5" action="/login" method="post">
+
+        <form class="row p-5" action="/login" method="post">
             @csrf
             <div class="col-md-12">
                 <label for="email" class="form-label">Email</label>

@@ -7,7 +7,7 @@ use App\Models\Usaha;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreUsahaRequest;
 use App\Http\Requests\UpdateUsahaRequest;
-use Illuminate\Support\Facades\DB;
+use App\Models\Pemilik;
 use Illuminate\Support\Facades\Route;
 
 class UsahaController extends Controller
@@ -18,7 +18,7 @@ class UsahaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $usaha = new Usaha();
 
         // $data_usaha = DB::table('jobs')
@@ -31,12 +31,14 @@ class UsahaController extends Controller
 
         // $dataUsaha = Usaha::with(['assets', 'funds'])->get();
 
-        $data_usaha = Usaha::all();
+        // $data_usaha = Usaha::all();
+
+        $data_pemilik_usaha = Pemilik::with(['usaha'])->get();
 
         return view('admin.data-usaha')->with([
             'user' => Auth::user(),
             'columns' => Helper::getCountKolom($usaha->getTable()),
-            'datas' => $data_usaha
+            'datas' => $data_pemilik_usaha
         ]);
     }
 
@@ -108,7 +110,7 @@ class UsahaController extends Controller
             'nib' => 'required',
             'no_pendataan_umkm' => 'required',
             'permodalan_usaha' => 'required',
-            'cakupan_wilayah_pemasaran'=> 'required',
+            'cakupan_wilayah_pemasaran' => 'required',
             'jenis_pemasaran' => 'required',
             'permasalahan_usaha' => 'required',
         ]);

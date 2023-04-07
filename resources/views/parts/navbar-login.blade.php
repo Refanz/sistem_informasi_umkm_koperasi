@@ -1,11 +1,3 @@
-{{-- <div class="navbar-login">
-
-    <img src="{{ asset('/img/logodinaskoperasi.png') }}" alt="">
-
-<p>Dinas Koperasi Usaha Mikro <br>Kota Semarang</p>
-
-</div> --}}
-
 <nav class="navbar">
     <div class="container-fluid">
         <a class="navbar-brand ms-4" href="#">

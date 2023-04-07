@@ -7,7 +7,6 @@
                 <li><a href="/umkm">HOME</a></li>
                 <li><a href="/registrasi">PENDAFTARAN</a></li>
                 <li><a href="/contact">CONTACT</a></li>
-                <li><a href="/about">ABOUT</a></li>
             </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>

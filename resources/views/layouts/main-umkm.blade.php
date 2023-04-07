@@ -47,11 +47,8 @@
         @yield('container')
     </div>
 
-
-
+    @include('parts.umkm.footer-umkm')
     
-
-
     <!-- JavaScript for Toggle Menu -->
     <script>
         var navLinks = document.getElementById("navLinks");

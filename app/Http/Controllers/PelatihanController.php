@@ -7,6 +7,7 @@ use App\Models\Pelatihan;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePelatihanRequest;
 use App\Http\Requests\UpdatePelatihanRequest;
+use App\Models\Pemilik;
 use Illuminate\Support\Facades\Route;
 
 class PelatihanController extends Controller
@@ -21,10 +22,12 @@ class PelatihanController extends Controller
 
         $pelatihan = new Pelatihan;
 
+        $data_pelatihan = Pemilik::with(['pelatihan'])->get();
+
         return view('admin.data-pelatihan')->with([
             'user' => Auth::user(),
             'columns' => Helper::getCountKolom($pelatihan->getTable()),
-            'datas' => $pelatihan->all()
+            'datas' => $data_pelatihan
         ]);
     }
 

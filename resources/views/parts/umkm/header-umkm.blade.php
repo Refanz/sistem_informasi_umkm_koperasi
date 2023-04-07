@@ -7,7 +7,6 @@
                 <li><a href="/umkm">HOME</a></li>
                 <li><a href="/registrasi">PENDAFTARAN</a></li>
                 <li><a href="/contact">CONTACT</a></li>
-                <li><a href="/about">ABOUT</a></li>
             </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -20,6 +19,6 @@
             excepturi perferendis sed nam perspiciatis, unde in ex itaque
             repellendus. Culpa odio consectetur amet similique iste.
         </p>
-        <a href="" class="hero-btn">Visit Us To Know More</a>
+        <a href="https://diskopumkm.semarangkota.go.id/" class="hero-btn">Visit Us To Know More</a>
     </div>
 </section>

@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th>no</th>
+                                <th>nama_pemilik</th>
                                 @foreach(array_slice($columns, 2) as $kolom)
                                 <th>{{ $kolom }}</th>
                                 @endforeach
@@ -36,29 +37,30 @@
                           
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $data->nama_usaha }}</td>
-                                <td>{{ $data->bidang_usaha }}</td>
-                                <td>{{ $data->jenis_produk }}</td>
-                                <td>{{ $data->nib_oss }}</td>
-                                <td>{{ $data->no_pendataan_umkm }}</td>
-                                <td>{{ $data->alamat_usaha }}</td>
-                                <td>{{ $data->kelurahan_usaha }}</td>
-                                <td>{{ $data->kecamatan_usaha }}</td>
-                                <td>{{ $data->cakupan_wilayah_pemasaran }}</td>
-                                <td>{{ $data->jenis_pemasaran }}</td>
-                                <td>{{ $data->izin_usaha }}</td>
-                                <td>{{ $data->permodalan_usaha }}</td>
-                                <td>{{ $data->permasalahan_usaha }}</td>
-                                <td>{{ $data->created_at }}</td>
-                                <td>{{ $data->updated_at }}</td>
+                                <td>{{ $data->nama_pemilik }}</td>
+                                <td>{{ $data->usaha->nama_usaha }}</td>
+                                <td>{{ $data->usaha->bidang_usaha }}</td>
+                                <td>{{ $data->usaha->jenis_produk }}</td>
+                                <td>{{ $data->usaha->nib_oss }}</td>
+                                <td>{{ $data->usaha->no_pendataan_umkm }}</td>
+                                <td>{{ $data->usaha->alamat_usaha }}</td>
+                                <td>{{ $data->usaha->kelurahan_usaha }}</td>
+                                <td>{{ $data->usaha->kecamatan_usaha }}</td>
+                                <td>{{ $data->usaha->cakupan_wilayah_pemasaran }}</td>
+                                <td>{{ $data->usaha->jenis_pemasaran }}</td>
+                                <td>{{ $data->usaha->izin_usaha }}</td>
+                                <td>{{ $data->usaha->permodalan_usaha }}</td>
+                                <td>{{ $data->usaha->permasalahan_usaha }}</td>
+                                <td>{{ $data->usaha->created_at }}</td>
+                                <td>{{ $data->usaha->updated_at }}</td>
                                 <td>
-                                    <a href="{{ route('detailUsaha', ['id' => $data->id]) }}"  data-toggle="modal"><i style="color: green;" class="fa fa-info-circle fa-lg box-icon" aria-hidden="true"></i></a>
-                                    <a class="d-inline" href="{{ route('editUsaha', ['id' => $data->id]) }}" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg box-icon" aria-hidden="true"></i></a>
-                                    <button class="btn btn-icon btn-link p-0 btn-a mt-0" onclick="showAlert2({{ $data->id }})">
+                                    <a href="{{ route('detailUsaha', ['id' => $data->usaha->id]) }}"  data-toggle="modal"><i style="color: green;" class="fa fa-info-circle fa-lg box-icon" aria-hidden="true"></i></a>
+                                    <a class="d-inline" href="{{ route('editUsaha', ['id' => $data->usaha->id]) }}" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg box-icon" aria-hidden="true"></i></a>
+                                    <button class="btn btn-icon btn-link p-0 btn-a mt-0" onclick="showAlert2({{ $data->usaha->id }})">
                                         <i style="color: red" class="fa fa-trash fa-lg box-icon mb-2" aria-hidden="true"></i>
                                     </button>
                                     
-                                    <form id="hapus-form-{{ $data->id }}" class="form-inline" action="{{ route('hapusUsaha', ['id' => $data->id]) }}" method="post">
+                                    <form id="hapus-form-{{ $data->usaha->id }}" class="form-inline" action="{{ route('hapusUsaha', ['id' => $data->id]) }}" method="post">
                                         @csrf
                                     </form>
                                 </td>
