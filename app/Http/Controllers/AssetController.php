@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Requests\StoreAssetRequest;
 use App\Http\Requests\UpdateAssetRequest;
+use Illuminate\Support\Facades\Request;
 
 class AssetController extends Controller
 {
@@ -56,9 +59,19 @@ class AssetController extends Controller
      * @param  \App\Models\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asset $asset)
+    public function edit($id)
     {
-        //
+        $data = Asset::where('id', $id)->get();
+
+        //$id_usaha = Route::getCurrentRoute()->parameter('id');
+
+        $id_usaha = Request::query('id_usaha');
+
+        return view('admin.data-detail-usaha.edit-data-aset')->with([
+            'user' => Auth::user(),
+            'id_usaha' => $id_usaha,
+            'data' => $data
+        ]);
     }
 
     /**
@@ -70,7 +83,21 @@ class AssetController extends Controller
      */
     public function update(UpdateAssetRequest $request, Asset $asset)
     {
-        //
+        $request->validate([
+            'tahun_aset' => 'required',
+            'jumlah_aset' => 'required'
+        ]);
+
+        $id_usaha = $request->input('id_usaha');
+
+        $id = Route::getCurrentRoute()->parameter('id');
+
+        Asset::where('id', $id)->update([
+            'tahun' => $request->input('tahun_aset'),
+            'jumlah_asset' => $request->input('jumlah_aset')
+        ]);
+
+        return redirect()->route('detailUsaha', ['id' => $id_usaha])->with('success', 'Data asset berhasil diubah');
     }
 
     /**
@@ -79,8 +106,11 @@ class AssetController extends Controller
      * @param  \App\Models\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asset $asset)
+    public function destroy($id)
     {
-        //
+        $data = Asset::findOrFail($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Data asset berhasil dihapus');
     }
 }

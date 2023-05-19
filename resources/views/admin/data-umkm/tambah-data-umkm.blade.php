@@ -17,10 +17,10 @@
         </div>
 
         @if($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Peringatan!</strong> {{ $errors->all()[0] }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Peringatan!</strong> {{ $errors->all()[0] }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         @endif
 
         <form class="row g-3" method="post" action="/tambah-data-umkm">
@@ -108,7 +108,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="form-label">Izin Usaha</label>
-                    <input type="text" class="form-control" placeholder="" name="izin_usaha" required/>
+                    <input type="text" class="form-control" placeholder="" name="izin_usaha" required />
                 </div>
             </div>
             <div class="col-md-7">
@@ -259,7 +259,7 @@
                     <textarea type="text" class="form-control" name="usulan_pelatihan" rows="6" required></textarea>
                 </div>
             </div>
-            <div class="col-5 col-sm-5 col-md-2">
+            <div class="col-5 col-sm-5 col-md-3">
                 <button id="tambah-data-umkm" class="btn btn-primary" type="submit">Tambah Data</button>
             </div>
             <div class="col-5 col-sm-5 col-md-2">

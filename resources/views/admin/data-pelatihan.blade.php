@@ -37,10 +37,10 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $data->nama_pemilik }}</td>
-                                <td>{{ $data->pelatihan->pengalaman_pelatihan }}</td>
-                                <td>{{ $data->pelatihan->usulan_pelatihan }}</td>
-                                <td>{{ $data->pelatihan->created_at }}</td>
-                                <td>{{ $data->pelatihan->updated_at }}</td>
+                                <td>{{ $data->pengalaman_pelatihan }}</td>
+                                <td>{{ $data->usulan_pelatihan }}</td>
+                                <td>{{ $data->created_at }}</td>
+                                <td>{{ $data->updated_at }}</td>
                                 <td>
                                     <a class="d-inline" href="{{ route('editPelatihan', ['id' => $data->id]) }}" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg box-icon" aria-hidden="true"></i></a>
                                     <button class="btn btn-icon btn-link p-0 btn-a mt-0" onclick="showAlert2({{ $data->id }})">

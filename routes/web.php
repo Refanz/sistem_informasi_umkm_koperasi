@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\CapacityProductionController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FundController;
 use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\UMKMController;
 use App\Http\Controllers\UsahaController;
+use App\Http\Controllers\WorkerController;
+use App\Models\CapacityProduction;
 use App\Models\UMKM;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -54,6 +59,22 @@ Route::post('/data-pelatihan/hapus/{id}', [PelatihanController::class, 'destroy'
 
 Route::get('/data-download-umkm', [UMKMController::class, 'downloadUMKM'])->middleware('auth')->name('dataDownloadUMKM');
 Route::get('/data-umkm', [UMKMController::class, 'exportToExcel'])->name('dataUMKM');
+
+Route::get('data-usaha/data-asset/edit/{id}', [AssetController::class, 'edit'])->middleware('auth')->name('editAsset');
+Route::post('data-usaha/data-asset/edit/{id}', [AssetController::class, 'update'])->middleware('auth')->name('editAsset');
+Route::post('data-usaha/data-asset/hapus/{id}', [AssetController::class, 'destroy'])->middleware('auth')->name('hapusAsset');
+
+Route::get('data-usaha/data-omset/edit/{id}', [FundController::class, 'edit'])->middleware('auth')->name('editOmset');
+Route::post('data-usaha/data-omset/edit/{id}', [FundController::class, 'update'])->middleware('auth')->name('editOmset');
+Route::post('data-usaha/data-omset/hapus/{id}', [FundController::class, 'destroy'])->middleware('auth')->name('hapusOmset');
+
+Route::get('data-usaha/data-tkerja/edit/{id}', [WorkerController::class, 'edit'])->middleware('auth')->name('editTkerja');
+Route::post('data-usaha/data-tkerja/edit/{id}', [WorkerController::class, 'update'])->middleware('auth')->name('editTkerja');
+Route::post('data-usaha/data-tkerja/hapus/{id}', [WorkerController::class, 'destroy'])->middleware('auth')->name('hapusTkerja');
+
+Route::get('data-usaha/data-kproduksi/edit/{id}', [CapacityProductionController::class, 'edit'])->middleware('auth')->name('editKproduksi');
+Route::post('data-usaha/data-kproduksi/edit/{id}', [CapacityProductionController::class, 'update'])->middleware('auth')->name('editKproduksi');
+Route::post('data-usaha/data-kproduksi/hapus/{id}', [CapacityProductionController::class, 'destroy'])->middleware('auth')->name('hapusKproduksi');
 
 Route::get('/umkm/data-kelurahan', [UMKMController::class, 'getDataPemilik'])->middleware('auth');
 

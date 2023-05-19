@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Helpers\Helper;
 use App\Models\Pemilik;
 use Illuminate\Support\Facades\Auth;
@@ -17,13 +18,13 @@ class PemilikController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $pemilik = new Pemilik();
 
         $dataPemilik = Pemilik::all();
 
         return view('admin.data-pemilik')->with([
-            'user'=> Auth::user(),
+            'user' => Auth::user(),
             'columns' => Helper::getCountKolom($pemilik->getTable()),
             'datas' => $dataPemilik
         ]);
@@ -101,7 +102,7 @@ class PemilikController extends Controller
             'alamat_pemilik' => 'required',
         ]);
 
-        
+
         $id_pemilik = Route::getCurrentRoute()->parameter('id');
 
         Pemilik::where('id', $id_pemilik)->update([
@@ -113,7 +114,7 @@ class PemilikController extends Controller
             'email' => $request->input('email'),
             'sosial_media' => $request->input('sosial_media'),
             'pendidikan_terakhir' => $request->input('pendidikan_terakhir'),
-        ]); 
+        ]);
 
         return redirect()->route('dataPemilik')->with('success', 'Data pemilik berhasil diubah');
     }
@@ -127,8 +128,20 @@ class PemilikController extends Controller
     public function destroy($id)
     {
         $data = Pemilik::findOrFail($id);
-        $data->delete();
 
-        return redirect()->route('dataPemilik')->with('success', 'Data pemilik berhasil dihapus');
+        // if ($data->delete() === true) {
+        //     return redirect()->route('dataPemilik')->with('success', 'Data pemilik berhasil dihapus');
+        // } else {
+        //     return redirect()->route('dataPemilik')->with('error', 'Data pemilik tidak dapat dihapus karena masih terkait dengan data lain');
+        // }
+
+        try {
+            if ($data) {
+                $data->delete();
+                return redirect()->route('dataPemilik')->with('success', 'Data pemilik berhasil dihapus');
+            }
+        } catch (Exception $e) {
+            return back()->with('errors', 'Data pemilik tidak dapat dihapus karena masih terkait dengan data lain');
+        }
     }
 }

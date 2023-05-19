@@ -33,7 +33,11 @@ class UsahaController extends Controller
 
         // $data_usaha = Usaha::all();
 
-        $data_pemilik_usaha = Pemilik::with(['usaha'])->get();
+        //$data_pemilik_usaha = Pemilik::with(['usaha'])->get();
+
+        $data_pemilik_usaha = Pemilik::join('jobs', 'owners.id', '=', 'jobs.owner_id')
+                        ->select('owners.nama_pemilik', 'jobs.*')
+                        ->get();
 
         return view('admin.data-usaha')->with([
             'user' => Auth::user(),
@@ -159,12 +163,14 @@ class UsahaController extends Controller
         //             ->distinct()
         //             ->get();
 
+        $id_usaha = Route::getCurrentRoute()->parameter('id');
+
         $datas = Usaha::with(['assets', 'funds', 'workers', 'capacityProductions'])->where('id', $id)->get();
 
         return view('admin.detail-data-usaha')->with([
             'user' => Auth::user(),
-            'datas' => $datas,
-            'no' => 1
+            'id_usaha' => $id_usaha,
+            'datas' => $datas
         ]);
     }
 }

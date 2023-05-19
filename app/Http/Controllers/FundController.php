@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fund;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Requests\StoreFundRequest;
+use Illuminate\Support\Facades\Request;
 use App\Http\Requests\UpdateFundRequest;
 
 class FundController extends Controller
@@ -56,9 +59,17 @@ class FundController extends Controller
      * @param  \App\Models\Fund  $fund
      * @return \Illuminate\Http\Response
      */
-    public function edit(Fund $fund)
+    public function edit($id)
     {
-        //
+        $data = Fund::where('id', $id)->get();
+
+        $id_usaha = Request::query('id_usaha');
+
+        return view('admin.data-detail-usaha.edit-data-omset')->with([
+            'user' => Auth::user(),
+            'id_usaha' => $id_usaha,
+            'data' => $data
+        ]);
     }
 
     /**
@@ -70,7 +81,21 @@ class FundController extends Controller
      */
     public function update(UpdateFundRequest $request, Fund $fund)
     {
-        //
+        $request->validate([
+            'tahun_omset' => 'required',
+            'jumlah_omset' => 'required'
+        ]);
+
+        $id_usaha = $request->input('id_usaha');
+
+        $id = Route::getCurrentRoute()->parameter('id');
+
+        Fund::where('id', $id)->update([
+            'tahun' => $request->input('tahun_omset'),
+            'jumlah_modal' => $request->input('jumlah_omset')
+        ]);
+
+        return redirect()->route('detailUsaha', ['id' => $id_usaha])->with('success', 'Data omset berhasil diubah');
     }
 
     /**
@@ -79,8 +104,11 @@ class FundController extends Controller
      * @param  \App\Models\Fund  $fund
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fund $fund)
+    public function destroy($id)
     {
-        //
+        $data = Fund::findOrFail($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Data omset berhasil dihapus');
     }
 }

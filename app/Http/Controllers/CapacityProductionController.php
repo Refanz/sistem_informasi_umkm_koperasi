@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\CapacityProduction;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use App\Http\Requests\StoreCapacityProductionRequest;
 use App\Http\Requests\UpdateCapacityProductionRequest;
 
@@ -56,9 +59,18 @@ class CapacityProductionController extends Controller
      * @param  \App\Models\CapacityProduction  $capacityProduction
      * @return \Illuminate\Http\Response
      */
-    public function edit(CapacityProduction $capacityProduction)
+    public function edit($id)
     {
-        //
+        $data = CapacityProduction::where('id', $id)->get();
+
+        $id_usaha = Request::query('id_usaha');
+
+        return view('admin.data-detail-usaha.edit-data-kproduksi')->with([
+            'user' => Auth::user(),
+            'id_usaha' => $id_usaha,
+            'data' => $data
+        ]);
+
     }
 
     /**
@@ -70,7 +82,21 @@ class CapacityProductionController extends Controller
      */
     public function update(UpdateCapacityProductionRequest $request, CapacityProduction $capacityProduction)
     {
-        //
+        $request->validate([
+           'tahun_kapasitas_produksi' => 'required',
+           'jumlah_kapasitas_produksi' => 'required' 
+        ]);
+
+        $id_usaha = $request->input('id_usaha');
+
+        $id = Route::getCurrentRoute()->parameter('id');
+
+        CapacityProduction::where('id', $id)->update([
+            'tahun' => $request->input('tahun_kapasitas_produksi'),
+            'jumlah_kapasitas_produksi' => $request->input('jumlah_kapasitas_produksi')
+        ]);
+
+        return redirect()->route('detailUsaha', ['id' => $id_usaha])->with('success', 'Data kapasitas produksi berhasil diubah');
     }
 
     /**
@@ -79,8 +105,11 @@ class CapacityProductionController extends Controller
      * @param  \App\Models\CapacityProduction  $capacityProduction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CapacityProduction $capacityProduction)
+    public function destroy($id)
     {
-        //
+        $data = CapacityProduction::findOrFail($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Data kapasitas produksi berhasil dihapus');
     }
 }

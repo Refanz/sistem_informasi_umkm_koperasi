@@ -22,7 +22,11 @@ class PelatihanController extends Controller
 
         $pelatihan = new Pelatihan;
 
-        $data_pelatihan = Pemilik::with(['pelatihan'])->get();
+        //$data_pelatihan = Pemilik::with(['pelatihan'])->get();
+
+        $data_pelatihan = Pemilik::join('trainings', 'owners.id', '=', 'trainings.owner_id')
+                            ->select('owners.nama_pemilik', 'trainings.*')
+                            ->get();
 
         return view('admin.data-pelatihan')->with([
             'user' => Auth::user(),
