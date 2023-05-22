@@ -39,7 +39,23 @@ class FundController extends Controller
      */
     public function store(StoreFundRequest $request)
     {
-        //
+        $omset = new Fund();
+
+        $request->validate([
+            'tahun_omset' => 'required',
+            'jumlah_omset' => 'required'
+        ]);
+
+        $uri = url()->previous();
+        $uri_array = explode('/', $uri);
+        $id_usaha = $uri_array[count($uri_array) - 1];
+
+        $omset->jumlah_modal = $request->input('jumlah_omset');
+        $omset->tahun = $request->input('tahun_omset');
+        $omset->jobs_id = $id_usaha;
+        $omset->saveOrFail();
+
+        return redirect()->back()->with('success', 'Data omset berhasil ditambahkan');
     }
 
     /**
@@ -65,7 +81,7 @@ class FundController extends Controller
 
         $id_usaha = Request::query('id_usaha');
 
-        return view('admin.data-detail-usaha.edit-data-omset')->with([
+        return view('admin.data-detail-usaha.data-omset.edit-data-omset')->with([
             'user' => Auth::user(),
             'id_usaha' => $id_usaha,
             'data' => $data

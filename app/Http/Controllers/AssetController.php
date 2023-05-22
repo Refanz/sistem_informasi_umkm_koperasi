@@ -39,7 +39,23 @@ class AssetController extends Controller
      */
     public function store(StoreAssetRequest $request)
     {
-        //
+        $asset = new Asset();
+
+        $request->validate([
+            'tahun_asset' => 'required',
+            'jumlah_asset' => 'required'
+        ]);
+
+        $uri = url()->previous();
+        $uri_array = explode('/', $uri);
+        $id_usaha = $uri_array[count($uri_array) - 1];
+
+        $asset->jumlah_asset = $request->input('jumlah_asset');
+        $asset->tahun = $request->input('tahun_asset');
+        $asset->jobs_id = $id_usaha;
+        $asset->saveOrFail();
+
+        return redirect()->back()->with('success', 'Data asset berhasil ditambahkan');
     }
 
     /**
@@ -67,7 +83,7 @@ class AssetController extends Controller
 
         $id_usaha = Request::query('id_usaha');
 
-        return view('admin.data-detail-usaha.edit-data-aset')->with([
+        return view('admin.data-detail-usaha.data-aset.edit-data-aset')->with([
             'user' => Auth::user(),
             'id_usaha' => $id_usaha,
             'data' => $data

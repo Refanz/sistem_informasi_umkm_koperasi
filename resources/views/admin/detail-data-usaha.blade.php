@@ -2,7 +2,6 @@
 
 @section('wrapper')
 
-
 <div class="main-pages">
     <div class="container-fluid">
         {{-- <div class="row mb-2">
@@ -20,6 +19,12 @@
         <div class="row mb-2">
             <h4>Data Asset</h4>
         </div>
+        <div class="row mb-2">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal" data-bs-id="asset">Tambah Asset</button>
+            </div>
+        </div>
+
         <div class="row mb-4">
             <div class="col-12 ">
                 <div class="card p-3 shadow">
@@ -61,6 +66,11 @@
         {{-- Detail Omset --}}
         <div class="row mb-2">
             <h4>Data Omset</h4>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal" data-bs-id="omset">Tambah Omset</button>
+            </div>
         </div>
         <div class="row mt-2 mb-4">
             <div class="col-12 ">
@@ -104,6 +114,11 @@
         <div class="row mb-2">
             <h4>Data Tenaga Kerja</h4>
         </div>
+        <div class="row mb-2">
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal" data-bs-id="tkerja">Tambah Tenaga Kerja</button>
+            </div>
+        </div>
         <div class="row mt-2 mb-4">
             <div class="col-12 ">
                 <div class="card p-3 shadow">
@@ -146,6 +161,11 @@
         <div class="row mb-2">
             <h4>Data Kapasitas Produksi</h4>
         </div>
+        <div class="row mb-2">
+            <div class="col-md-5">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal" data-bs-id="kproduksi">Tambah Kapasitas Produksi</button>
+            </div>
+        </div>
         <div class="row mt-2 mb-4">
             <div class="col-12 ">
                 <div class="card p-3 shadow">
@@ -185,6 +205,9 @@
         </div>
     </div>
 </div>
+
+@include('admin.data-detail-usaha.data-aset.tambah-data-aset')
+@include('admin.data-detail-usaha.data-kproduksi.tambah-data-kproduksi')
 
 
 @endsection

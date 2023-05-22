@@ -39,7 +39,23 @@ class WorkerController extends Controller
      */
     public function store(StoreWorkerRequest $request)
     {
-        //
+        $tkerja = new Worker();
+
+        $request->validate([
+            'tahun_tkerja' => 'required',
+            'jumlah_tkerja' => 'required'
+        ]);
+
+        $uri = url()->previous();
+        $uri_array = explode('/', $uri);
+        $id_usaha = $uri_array[count($uri_array) - 1];
+
+        $tkerja->jumlah_pekerja = $request->input('jumlah_tkerja');
+        $tkerja->tahun = $request->input('tahun_tkerja');
+        $tkerja->jobs_id = $id_usaha;
+        $tkerja->saveOrFail();
+
+        return redirect()->back()->with('success', 'Data tenaga kerja berhasil ditambahkan');
     }
 
     /**
@@ -65,7 +81,7 @@ class WorkerController extends Controller
 
         $id_usaha = Request::query('id_usaha');
 
-        return view('admin.data-detail-usaha.edit-data-tkerja')->with([
+        return view('admin.data-detail-usaha.data-tkerja.edit-data-tkerja')->with([
             'user' => Auth::user(),
             'id_usaha' => $id_usaha,
             'data' => $data

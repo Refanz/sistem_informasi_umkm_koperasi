@@ -39,7 +39,23 @@ class CapacityProductionController extends Controller
      */
     public function store(StoreCapacityProductionRequest $request)
     {
-        //
+        $kapasitas_produksi = new CapacityProduction();
+
+        $request->validate([
+            'tahun_kproduksi' => 'required',
+            'jumlah_kproduksi' => 'required'
+        ]);
+
+        $uri = url()->previous();
+        $uri_array = explode('/', $uri);
+        $id_usaha = $uri_array[count($uri_array) - 1];
+
+        $kapasitas_produksi->jumlah_kapasitas_produksi = $request->input('jumlah_kproduksi');
+        $kapasitas_produksi->tahun = $request->input('tahun_kproduksi');
+        $kapasitas_produksi->jobs_id = $id_usaha;
+        $kapasitas_produksi->saveOrFail();
+
+        return redirect()->back()->with('success', 'Data kapasitas produksi berhasil ditambahkan');
     }
 
     /**
@@ -65,7 +81,7 @@ class CapacityProductionController extends Controller
 
         $id_usaha = Request::query('id_usaha');
 
-        return view('admin.data-detail-usaha.edit-data-kproduksi')->with([
+        return view('admin.data-detail-usaha.data-kproduksi.edit-data-kproduksi')->with([
             'user' => Auth::user(),
             'id_usaha' => $id_usaha,
             'data' => $data

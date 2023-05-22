@@ -11,6 +11,8 @@ class Asset extends Model
 
     protected $with = ['usaha'];
 
+    protected $guarded = ['id'];
+
     public function usaha()
     {
         return $this->belongsTo(Usaha::class, 'jobs_id');
