@@ -14,7 +14,7 @@ function tambahFieldOmset() {
     row_omset.style = "display: inline-flex";
 
     let col_omset = document.createElement('div');
-    col_omset.className = "col-md-4 me-2"
+    col_omset.className = "col-md-5 me-2"
 
     let form_g_omset = document.createElement('div');
     form_g_omset.className = "form-group";
@@ -30,7 +30,7 @@ function tambahFieldOmset() {
 
     // Tahun Omset
     let col_tahun_omset = document.createElement('div');
-    col_tahun_omset.className = "col-md-4";
+    col_tahun_omset.className = "col-md-5";
 
     let form_g_tahun_omset = document.createElement('div');
     form_g_tahun_omset.className = "form-group";
@@ -94,7 +94,7 @@ function tambahFieldAset() {
     row_aset.style = "display: inline-flex";
 
     let col_aset = document.createElement('div');
-    col_aset.className = "col-md-4 me-2"
+    col_aset.className = "col-md-5 me-2"
 
     let form_g_aset = document.createElement('div');
     form_g_aset.className = "form-group";
@@ -110,7 +110,7 @@ function tambahFieldAset() {
 
     // Tahun Aset
     let col_tahun_aset = document.createElement('div');
-    col_tahun_aset.className = "col-md-4";
+    col_tahun_aset.className = "col-md-5";
 
     let form_g_tahun_aset = document.createElement('div');
     form_g_tahun_aset.className = "form-group";
@@ -173,7 +173,7 @@ function tambahFieldKapasitasProduksi() {
     row_kapasitas_produksi.style = "display: inline-flex";
 
     let col_kapasitas_produksi = document.createElement('div');
-    col_kapasitas_produksi.className = "col-md-4 col-4 me-2"
+    col_kapasitas_produksi.className = "col-md-5 col-5 me-2"
 
     let form_g_kapasitas_produksi = document.createElement('div');
     form_g_kapasitas_produksi.className = "form-group";
@@ -189,7 +189,7 @@ function tambahFieldKapasitasProduksi() {
 
     // Tahun kapasitas_produksi
     let col_tahun_kapasitas_produksi = document.createElement('div');
-    col_tahun_kapasitas_produksi.className = "col-md-4 col-5";
+    col_tahun_kapasitas_produksi.className = "col-md-5 col-5";
 
     let form_g_tahun_kapasitas_produksi = document.createElement('div');
     form_g_tahun_kapasitas_produksi.className = "form-group";
@@ -252,7 +252,7 @@ function tambahFieldTenagaKerja() {
     row_tenaga_kerja.style = "display: inline-flex";
 
     let col_tenaga_kerja = document.createElement('div');
-    col_tenaga_kerja.className = "col-md-4 col-4 me-2"
+    col_tenaga_kerja.className = "col-md-5 col-5 me-2"
 
     let form_g_tenaga_kerja = document.createElement('div');
     form_g_tenaga_kerja.className = "form-group";
@@ -268,7 +268,7 @@ function tambahFieldTenagaKerja() {
 
     // Tahun tenaga_kerja
     let col_tahun_tenaga_kerja = document.createElement('div');
-    col_tahun_tenaga_kerja.className = "col-md-4 col-5";
+    col_tahun_tenaga_kerja.className = "col-md-5 col-5";
 
     let form_g_tahun_tenaga_kerja = document.createElement('div');
     form_g_tahun_tenaga_kerja.className = "form-group";
