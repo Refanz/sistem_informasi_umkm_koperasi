@@ -1,17 +1,21 @@
-<section class="sub-header">
+<section class="sub-header" style="background-image:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url({{ asset('img/img-umkm/banner.jpg') }})" ">
     <nav>
-        <a href="/umkm"><img src="{{ asset('/img/img-umkm/logo.png') }}" /></a>
-        <div class="nav-links" id="navLinks">
-            <i class="fa fa-times" onclick="hideMenu()"></i>
-            <ul>
-                <li><a href="/umkm">HOME</a></li>
-                <li><a href="/registrasi">PENDAFTARAN</a></li>
-                <li><a href="/contact">CONTACT</a></li>
-            </ul>
-        </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>
+        <a href=" /umkm"><img src="{{ asset('img/img-umkm/logo.png') }}" /></a>
+    <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+            <li><a href="/umkm">Beranda</a></li>
+            <li><a href="/registrasi">Pendaftaran</a></li>
+            <li><a href="/contact">Kontak</a></li>
+        </ul>
+    </div>
+    <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
-    <h1 style="text-transform: uppercase">
-        {{ $active }}
-    </h1>
-</section>
+    @if(Request::routeIs('registrasi'))
+    <h1>Daftarkan Usaha Anda</h1>
+    @elseif(Request::routeIs('contact'))
+    <h1>Hubungi Kami</h1>
+    @endif
+    
+</section> <!-- End Sub Header -->
+

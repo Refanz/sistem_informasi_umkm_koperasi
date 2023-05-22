@@ -1,12 +1,13 @@
-<section class="header">
+<!-- Section Header -->
+<section class="header" style="background-image:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url({{ asset('img/img-umkm/banner.jpg') }})">
     <nav>
         <a href="/umkm"><img src="{{ asset('/img/img-umkm/logo.png') }}" /></a>
         <div class="nav-links" id="navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="/umkm">HOME</a></li>
-                <li><a href="/registrasi">PENDAFTARAN</a></li>
-                <li><a href="/contact">CONTACT</a></li>
+                <li><a href="/umkm">Beranda</a></li>
+                <li><a href="/registrasi">Pendaftaran</a></li>
+                <li><a href="/contact">Kontak</a></li>
             </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -15,10 +16,8 @@
     <div class="text-box">
         <h1>Pendaftaran UMKM Kota Semarang</h1>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            excepturi perferendis sed nam perspiciatis, unde in ex itaque
-            repellendus. Culpa odio consectetur amet similique iste.
+            Melalui website ini Anda dapat melakukan pendaftaran usaha Anda sehingga dapat meningkatkan potensi ekonomi lokal yang berdaya saing di Kota Semarang dan di dunia Internasional.
         </p>
-        <a href="https://diskopumkm.semarangkota.go.id/" class="hero-btn">Visit Us To Know More</a>
+        <a href="/registrasi" class="primary-btn">Daftar</a>
     </div>
-</section>
+</section> <!-- End Section Header -->

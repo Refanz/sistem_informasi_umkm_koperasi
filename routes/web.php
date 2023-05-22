@@ -38,7 +38,7 @@ Route::get('/data-pemilik/edit/{id}', [PemilikController::class , 'edit'])->midd
 Route::post('/data-pemilik/edit/{id}', [PemilikController::class , 'update'])->name('editPemilik');
 
 Route::get('/tambah-data-umkm', [UMKMController::class, 'create'])->middleware('auth');
-Route::post('/tambah-data-umkm', [UMKMController::class, 'store']);
+Route::post('/tambah-data-umkm', [UMKMController::class, 'store'])->middleware('auth');
 
 Route::get('/umkm', [UMKMController::class, 'index'])->withoutMiddleware('auth')->name('umkm');
 Route::get('/registrasi', [UMKMController::class, 'registrasi'])->name('registrasi');

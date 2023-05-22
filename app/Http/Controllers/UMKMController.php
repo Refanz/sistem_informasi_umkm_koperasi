@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreUMKMRequest;
 use App\Http\Requests\UpdateUMKMRequest;
+use Exception;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UMKMController extends Controller
@@ -88,7 +89,7 @@ class UMKMController extends Controller
             'nib' => 'required',
             'no_pendataan_umkm' => 'required',
             'permodalan_usaha' => 'required',
-            'cakupan_wilayah_pemasaran'=> 'required',
+            'cakupan_wilayah_pemasaran' => 'required',
             'jenis_pemasaran' => 'required',
             'permasalahan_usaha' => 'required',
 
@@ -106,7 +107,7 @@ class UMKMController extends Controller
 
             //Kapasitas Produksi
             'kapasitas_produksi' => 'required',
-            'tahun_kapasitas_produksi' => 'required', 
+            'tahun_kapasitas_produksi' => 'required',
 
             //Data Pelatihan
             'pengalaman_pelatihan' => 'required',
@@ -132,7 +133,7 @@ class UMKMController extends Controller
         $pemilik->email = $request->input('email');
         $pemilik->sosial_media = $request->input('sosial_media');
         $pemilik->pendidikan_terakhir = $request->input('pendidikan_terakhir');
-        $pemilik->save();
+
 
         //Data Usaha
         $usaha = new Usaha();
@@ -159,14 +160,14 @@ class UMKMController extends Controller
         $usaha->izin_usaha = $request->input('izin_usaha');
         $usaha->permodalan_usaha = $request->input('permodalan_usaha');
         $usaha->permasalahan_usaha = $request->input('permasalahan_usaha');
-        $pemilik->usaha()->save($usaha);
+
 
         //Data Pelatihan
         $pelatihan = new Pelatihan();
         $pelatihan->owner_id = $id_pemilik;
         $pelatihan->pengalaman_pelatihan = $request->input('pengalaman_pelatihan');
         $pelatihan->usulan_pelatihan = $request->input('usulan_pelatihan');
-        $pemilik->pelatihan()->save($pelatihan);
+
 
 
         // Data Asset
@@ -188,7 +189,7 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->assets()->insert($data_asset);
+
 
         //Data Omset
         $omset = new Fund();
@@ -208,7 +209,7 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->funds()->insert($data_omset);
+
 
         //Data Kapasitas Produksi
         $kapasitas_produksi = new CapacityProduction();
@@ -228,7 +229,7 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->capacityProductions()->insert($data_kapasitas_produksi);
+
 
         //Data Tenaga Kerja
         $tenaga_kerja = new Worker();
@@ -239,7 +240,7 @@ class UMKMController extends Controller
         foreach ($jumlah_tenaga_kerja as $index => $tkerja) {
             $tahun = $tahun_tenaga_kerja[$index];
 
-            $data_tenaga_kerja [] = [
+            $data_tenaga_kerja[] = [
                 'jobs_id' => $id_usaha,
                 'jumlah_pekerja' => $tkerja,
                 'tahun' => $tahun,
@@ -248,9 +249,19 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->workers()->insert($data_tenaga_kerja);
+        try {
+            $pemilik->save();
+            $pemilik->usaha()->save($usaha);
+            $pemilik->pelatihan()->save($pelatihan);
+            $usaha->assets()->insert($data_asset);
+            $usaha->funds()->insert($data_omset);
+            $usaha->capacityProductions()->insert($data_kapasitas_produksi);
+            $usaha->workers()->insert($data_tenaga_kerja);
 
-        return redirect('/tambah-data-umkm')->with('success', 'Data UMKM berhasil ditambah');
+            return redirect('/tambah-data-umkm')->with('success', 'Data UMKM berhasil ditambah');
+        } catch (Exception $e) {
+            return redirect('/tambah-data-umkm')->with('errors', $e->getMessage());
+        }
     }
 
     /**
@@ -303,9 +314,9 @@ class UMKMController extends Controller
         //$datas = Pemilik::with(['usaha', 'pelatihan'])->get();
 
         $datas = Pemilik::join('jobs', 'owners.id', '=', 'jobs.owner_id')
-                    ->join('trainings', 'owners.id', '=', 'trainings.owner_id')
-                    ->select('owners.*','jobs.*', 'trainings.*')
-                    ->get();
+            ->join('trainings', 'owners.id', '=', 'trainings.owner_id')
+            ->select('owners.*', 'jobs.*', 'trainings.*')
+            ->get();
 
         return view('admin.data-umkm')->with([
             'user' => Auth::user(),
@@ -318,7 +329,7 @@ class UMKMController extends Controller
         // return redirect()->route('dataDownloadUMKM')->with('tahun', $request->tahun_download);
         $tahun_download = $request->input('tahun_download');
 
-        return Excel::download(new DataTableExport($tahun_download), 'data-dinkop-'.now().'.xlsx');
+        return Excel::download(new DataTableExport($tahun_download), 'data-dinkop-' . now() . '.xlsx');
     }
 
     public function getDataPemilik()
@@ -328,12 +339,12 @@ class UMKMController extends Controller
         //                             ->get();
 
         $data_kelurahan = Pemilik::select('kelurahan_pemilik', DB::raw('count(*) as total'))
-                                    ->groupBy('kelurahan_pemilik')
-                                    ->get();
-        
+            ->groupBy('kelurahan_pemilik')
+            ->get();
+
         $data_kecamatan = Pemilik::select('kecamatan_pemilik', DB::raw('count(*) as total'))
-                                    ->groupBy('kecamatan_pemilik')
-                                    ->get();                            
+            ->groupBy('kecamatan_pemilik')
+            ->get();
 
         return response()->json([
             'data_kelurahan' => $data_kelurahan,
@@ -366,7 +377,7 @@ class UMKMController extends Controller
             'nib' => 'required',
             'no_pendataan_umkm' => 'required',
             'permodalan_usaha' => 'required',
-            'cakupan_wilayah_pemasaran'=> 'required',
+            'cakupan_wilayah_pemasaran' => 'required',
             'jenis_pemasaran' => 'required',
             'permasalahan_usaha' => 'required',
 
@@ -384,7 +395,7 @@ class UMKMController extends Controller
 
             //Kapasitas Produksi
             'kapasitas_produksi' => 'required',
-            'tahun_kapasitas_produksi' => 'required', 
+            'tahun_kapasitas_produksi' => 'required',
 
             //Data Pelatihan
             'pengalaman_pelatihan' => 'required',
@@ -410,7 +421,7 @@ class UMKMController extends Controller
         $pemilik->email = $request->input('email');
         $pemilik->sosial_media = $request->input('sosial_media');
         $pemilik->pendidikan_terakhir = $request->input('pendidikan_terakhir');
-        $pemilik->save();
+
 
         //Data Usaha
         $usaha = new Usaha();
@@ -437,14 +448,14 @@ class UMKMController extends Controller
         $usaha->izin_usaha = $request->input('izin_usaha');
         $usaha->permodalan_usaha = $request->input('permodalan_usaha');
         $usaha->permasalahan_usaha = $request->input('permasalahan_usaha');
-        $pemilik->usaha()->save($usaha);
+
 
         //Data Pelatihan
         $pelatihan = new Pelatihan();
         $pelatihan->owner_id = $id_pemilik;
         $pelatihan->pengalaman_pelatihan = $request->input('pengalaman_pelatihan');
         $pelatihan->usulan_pelatihan = $request->input('usulan_pelatihan');
-        $pemilik->pelatihan()->save($pelatihan);
+
 
 
         // Data Asset
@@ -466,7 +477,7 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->assets()->insert($data_asset);
+
 
         //Data Omset
         $omset = new Fund();
@@ -486,7 +497,7 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->funds()->insert($data_omset);
+
 
         //Data Kapasitas Produksi
         $kapasitas_produksi = new CapacityProduction();
@@ -506,7 +517,7 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->capacityProductions()->insert($data_kapasitas_produksi);
+
 
         //Data Tenaga Kerja
         $tenaga_kerja = new Worker();
@@ -517,7 +528,7 @@ class UMKMController extends Controller
         foreach ($jumlah_tenaga_kerja as $index => $tkerja) {
             $tahun = $tahun_tenaga_kerja[$index];
 
-            $data_tenaga_kerja [] = [
+            $data_tenaga_kerja[] = [
                 'jobs_id' => $id_usaha,
                 'jumlah_pekerja' => $tkerja,
                 'tahun' => $tahun,
@@ -526,8 +537,18 @@ class UMKMController extends Controller
             ];
         }
 
-        $usaha->workers()->insert($data_tenaga_kerja);
+        try {
+            $pemilik->save();
+            $pemilik->usaha()->save($usaha);
+            $pemilik->pelatihan()->save($pelatihan);
+            $usaha->assets()->insert($data_asset);
+            $usaha->funds()->insert($data_omset);
+            $usaha->capacityProductions()->insert($data_kapasitas_produksi);
+            $usaha->workers()->insert($data_tenaga_kerja);
 
-        return redirect('/registrasi')->with('success', 'Data UMKM berhasil ditambah');
+            return redirect('/registrasi')->with('sukses', 'Data UMKM berhasil ditambah');
+        } catch (Exception $e) {
+            return redirect('/registrasi')->with('gagal', $e->getMessage());
+        }
     }
 }
