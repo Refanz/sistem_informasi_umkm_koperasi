@@ -8,7 +8,7 @@
     </div>
 
     <div class="links">
-      <a href="/umkm">Beranda</a>
+      <a href="/">Beranda</a>
       <a href="/registrasi">Pendaftaran</a>
       <a href="/contact">Kontak</a>
     </div>

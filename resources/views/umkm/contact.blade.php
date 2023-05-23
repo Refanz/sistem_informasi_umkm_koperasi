@@ -46,11 +46,11 @@
                 </div>
             </div>
             <div class="contact-col">
-                <form action="https://formsubmit.co/kopumkmsmg@gmail.com" method="POST">
-                    <input type="text" name="name" placeholder="Nama" required />
-                    <input type="email" name="email" placeholder="Email" required />
-                    <input type="text" name="subject" placeholder="Subjek" required />
-                    <textarea rows="6" name="message" placeholder="Pesan" required></textarea>
+                <form action="https://formsubmit.co/refanda51@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="nama" required />
+                    <input type="email" name="email" placeholder="email" required />
+                    <input type="text" name="subject" placeholder="subject" required />
+                    <textarea rows="6" name="message" placeholder="pesan" required></textarea>
                     <button type="submit" class="primary-btn red-btn">Submit</button>
                 </form>
             </div>

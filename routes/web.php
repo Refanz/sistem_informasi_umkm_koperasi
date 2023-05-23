@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\CapacityProductionController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FundController;
@@ -10,8 +11,8 @@ use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\UMKMController;
 use App\Http\Controllers\UsahaController;
 use App\Http\Controllers\WorkerController;
-use App\Models\CapacityProduction;
-use App\Models\UMKM;
+
+
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -40,11 +41,12 @@ Route::post('/data-pemilik/edit/{id}', [PemilikController::class , 'update'])->n
 Route::get('/tambah-data-umkm', [UMKMController::class, 'create'])->middleware('auth');
 Route::post('/tambah-data-umkm', [UMKMController::class, 'store'])->middleware('auth');
 
-Route::get('/umkm', [UMKMController::class, 'index'])->withoutMiddleware('auth')->name('umkm');
+Route::get('/', [UMKMController::class, 'index'])->withoutMiddleware('auth')->name('umkm');
 Route::get('/registrasi', [UMKMController::class, 'registrasi'])->name('registrasi');
 Route::get('/about', [UMKMController::class, 'about'])->name('about');
-Route::get('/contact', [UMKMController::class, 'contact'])->name('contact');
 Route::post('/tambah-umkm-user', [UMKMController::class, 'tambahUmkm'])->withoutMiddleware(['auth'])->name('tambahUmkmUser');
+Route::get('/contact', [UMKMController::class, 'contact'])->name('contact');
+
 
 Route::get('/data-usaha', [UsahaController::class, 'index'])->middleware('auth')->name('dataUsaha');
 Route::get('/data-usaha/detail/{id}', [UsahaController::class, 'detailDataUsaha'])->middleware('auth')->name('detailUsaha');

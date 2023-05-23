@@ -1,11 +1,11 @@
 <!-- Section Header -->
 <section class="header" style="background-image:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url({{ asset('img/img-umkm/banner.jpg') }})">
     <nav>
-        <a href="/umkm"><img src="{{ asset('/img/img-umkm/logo.png') }}" /></a>
+        <a href="/"><img src="{{ asset('/img/img-umkm/logo.png') }}" /></a>
         <div class="nav-links" id="navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="/umkm">Beranda</a></li>
+                <li><a href="/">Beranda</a></li>
                 <li><a href="/registrasi">Pendaftaran</a></li>
                 <li><a href="/contact">Kontak</a></li>
             </ul>
